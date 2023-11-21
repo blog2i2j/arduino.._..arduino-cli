@@ -34,12 +34,7 @@ import (
 // LoadHardware read all plaforms from the configured paths
 func (pm *Builder) LoadHardware() []error {
 	hardwareDirs := configuration.HardwareDirectories(configuration.Settings)
-	merr := pm.LoadHardwareFromDirectories(hardwareDirs)
-
-	bundleToolDirs := configuration.BuiltinToolsDirectories(configuration.Settings)
-	merr = append(merr, pm.LoadToolsFromBundleDirectories(bundleToolDirs)...)
-
-	return merr
+	return pm.LoadHardwareFromDirectories(hardwareDirs)
 }
 
 // LoadHardwareFromDirectories load plaforms from a set of directories
@@ -614,19 +609,6 @@ func (pm *Builder) loadToolReleaseFromDirectory(tool *cores.Tool, version *semve
 		pm.log.WithField("tool", toolRelease).Infof("Loaded tool")
 		return nil
 	}
-}
-
-// LoadToolsFromBundleDirectories FIXMEDOC
-func (pm *Builder) LoadToolsFromBundleDirectories(dirs paths.PathList) []error {
-	var merr []error
-	for _, dir := range dirs {
-		pm.log.Infof("Loading tools from bundle dir: %s", dir)
-		// load the tools inside the unnamed package
-		if err := pm.LoadToolsFromPackageDir(pm.packages.GetOrCreatePackage(""), dir); err != nil {
-			merr = append(merr, fmt.Errorf("%s: %w", tr("loading bundled tools from %s", dir), err[0]))
-		}
-	}
-	return merr
 }
 
 // LoadDiscoveries load all discoveries for all loaded platforms

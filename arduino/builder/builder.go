@@ -122,8 +122,7 @@ func NewBuilder(
 	coreBuildCachePath *paths.Path,
 	jobs int,
 	requestBuildProperties []string,
-	hardwareDirs, builtInToolsDirs, otherLibrariesDirs paths.PathList,
-	builtInLibrariesDirs *paths.Path,
+	hardwareDirs, otherLibrariesDirs paths.PathList,
 	fqbn *cores.FQBN,
 	clean bool,
 	sourceOverrides map[string]string,
@@ -187,8 +186,7 @@ func NewBuilder(
 	logger := logger.New(stdout, stderr, verbose, warningsLevel)
 	libsManager, libsResolver, verboseOut, err := detector.LibrariesLoader(
 		useCachedLibrariesResolution, librariesManager,
-		builtInLibrariesDirs, libraryDirs, otherLibrariesDirs,
-		actualPlatform, targetPlatform,
+		libraryDirs, otherLibrariesDirs, actualPlatform, targetPlatform,
 	)
 	if err != nil {
 		return nil, err
@@ -224,8 +222,8 @@ func NewBuilder(
 			logger,
 		),
 		buildOptions: newBuildOptions(
-			hardwareDirs, builtInToolsDirs, otherLibrariesDirs,
-			builtInLibrariesDirs, buildPath,
+			hardwareDirs, otherLibrariesDirs,
+			buildPath,
 			sk,
 			customBuildPropertiesArgs,
 			fqbn,

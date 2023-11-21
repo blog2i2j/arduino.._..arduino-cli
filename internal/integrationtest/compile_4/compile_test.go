@@ -1010,7 +1010,6 @@ func TestBuildOptionsFile(t *testing.T) {
 
 	requirejson.Query(t, buildOptionsBytes, "keys", `[
 		"additionalFiles",
-		"builtInToolsFolders",
 		"compiler.optimization_flags",
 		"customBuildProperties",
 		"fqbn",

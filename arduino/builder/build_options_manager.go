@@ -47,8 +47,8 @@ type buildOptions struct {
 
 // newBuildOptions fixdoc
 func newBuildOptions(
-	hardwareDirs, builtInToolsDirs, otherLibrariesDirs paths.PathList,
-	builtInLibrariesDirs, buildPath *paths.Path,
+	hardwareDirs, otherLibrariesDirs paths.PathList,
+	buildPath *paths.Path,
 	sketch *sketch.Sketch,
 	customBuildProperties []string,
 	fqbn *cores.FQBN,
@@ -59,16 +59,11 @@ func newBuildOptions(
 	opts := properties.NewMap()
 
 	opts.Set("hardwareFolders", strings.Join(hardwareDirs.AsStrings(), ","))
-	opts.Set("builtInToolsFolders", strings.Join(builtInToolsDirs.AsStrings(), ","))
 	opts.Set("otherLibrariesFolders", strings.Join(otherLibrariesDirs.AsStrings(), ","))
 	opts.SetPath("sketchLocation", sketch.FullPath)
 	opts.Set("fqbn", fqbn.String())
 	opts.Set("customBuildProperties", strings.Join(customBuildProperties, ","))
 	opts.Set("compiler.optimization_flags", compilerOptimizationFlags)
-
-	if builtInLibrariesDirs != nil {
-		opts.Set("builtInLibrariesFolders", builtInLibrariesDirs.String())
-	}
 
 	absPath := sketch.FullPath.Parent()
 	var additionalFilesRelative []string
@@ -84,9 +79,7 @@ func newBuildOptions(
 	return &buildOptions{
 		currentOptions:            opts,
 		hardwareDirs:              hardwareDirs,
-		builtInToolsDirs:          builtInToolsDirs,
 		otherLibrariesDirs:        otherLibrariesDirs,
-		builtInLibrariesDirs:      builtInLibrariesDirs,
 		buildPath:                 buildPath,
 		runtimePlatformPath:       runtimePlatformPath,
 		buildCorePath:             buildCorePath,

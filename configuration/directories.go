@@ -42,17 +42,6 @@ func HardwareDirectories(settings *viper.Viper) paths.PathList {
 	return res
 }
 
-// BuiltinToolsDirectories returns all paths that may contains bundled-tools.
-func BuiltinToolsDirectories(settings *viper.Viper) paths.PathList {
-	return paths.NewPathList(settings.GetStringSlice("directories.builtin.Tools")...)
-}
-
-// IDEBuiltinLibrariesDir returns the IDE-bundled libraries path. Usually
-// this directory is present in the Arduino IDE.
-func IDEBuiltinLibrariesDir(settings *viper.Viper) *paths.Path {
-	return paths.New(Settings.GetString("directories.builtin.Libraries"))
-}
-
 // LibrariesDir returns the full path to the user directory containing
 // custom libraries
 func LibrariesDir(settings *viper.Viper) *paths.Path {

@@ -590,7 +590,7 @@ func (f *sourceFile) DepfilePath() *paths.Path {
 func LibrariesLoader(
 	useCachedLibrariesResolution bool,
 	librariesManager *librariesmanager.LibrariesManager,
-	builtInLibrariesDirs *paths.Path, libraryDirs, otherLibrariesDirs paths.PathList,
+	libraryDirs, otherLibrariesDirs paths.PathList,
 	actualPlatform, targetPlatform *cores.PlatformRelease,
 ) (*librariesmanager.LibrariesManager, *librariesresolver.Cpp, []byte, error) {
 	verboseOut := &bytes.Buffer{}
@@ -602,14 +602,6 @@ func LibrariesLoader(
 	}
 	if librariesManager == nil {
 		lm = librariesmanager.NewLibraryManager(nil, nil)
-
-		builtInLibrariesFolders := builtInLibrariesDirs
-		if builtInLibrariesFolders != nil {
-			if err := builtInLibrariesFolders.ToAbs(); err != nil {
-				return nil, nil, nil, errors.WithStack(err)
-			}
-			lm.AddLibrariesDir(builtInLibrariesFolders, libraries.IDEBuiltIn)
-		}
 
 		if actualPlatform != targetPlatform {
 			lm.AddPlatformReleaseLibrariesDir(actualPlatform, libraries.ReferencedPlatformBuiltIn)
