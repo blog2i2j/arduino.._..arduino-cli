@@ -31,7 +31,7 @@ func LibraryUpgradeAll(req *rpc.LibraryUpgradeAllRequest, downloadCB rpc.Downloa
 		return &arduino.InvalidInstanceError{}
 	}
 
-	if err := upgrade(req.GetInstance(), listLibraries(lm, true, false), downloadCB, taskCB); err != nil {
+	if err := upgrade(req.GetInstance(), listLibraries(lm, true), downloadCB, taskCB); err != nil {
 		return err
 	}
 
@@ -51,7 +51,7 @@ func LibraryUpgrade(ctx context.Context, req *rpc.LibraryUpgradeRequest, downloa
 
 	// Get the library to upgrade
 	name := req.GetName()
-	lib := filterByName(listLibraries(lm, false, false), name)
+	lib := filterByName(listLibraries(lm, false), name)
 	if lib == nil {
 		// library not installed...
 		return &arduino.LibraryNotFoundError{Library: name}

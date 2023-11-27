@@ -134,7 +134,6 @@ func getLibraries(all bool) []string {
 	inst := instance.CreateAndInit()
 	libs, _ := lib.LibraryList(context.Background(), &rpc.LibraryListRequest{
 		Instance:  inst,
-		All:       all,
 		Updatable: false,
 		Name:      "",
 		Fqbn:      "",

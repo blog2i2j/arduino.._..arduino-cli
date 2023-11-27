@@ -41,7 +41,7 @@ func LibraryResolveDependencies(ctx context.Context, req *rpc.LibraryResolveDepe
 
 	// Extract all installed libraries
 	installedLibs := map[string]*libraries.Library{}
-	for _, lib := range listLibraries(lm, false, false) {
+	for _, lib := range listLibraries(lm, false) {
 		installedLibs[lib.Library.Name] = lib.Library
 	}
 

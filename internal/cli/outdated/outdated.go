@@ -58,7 +58,7 @@ func runOutdatedCommand(cmd *cobra.Command, args []string) {
 // Outdated prints a list of outdated platforms and libraries
 func Outdated(inst *rpc.Instance) {
 	feedback.PrintResult(
-		newOutdatedResult(core.GetList(inst, false, true), lib.GetList(inst, []string{}, false, true)),
+		newOutdatedResult(core.GetList(inst, false, true), lib.GetList(inst, []string{}, true)),
 	)
 }
 

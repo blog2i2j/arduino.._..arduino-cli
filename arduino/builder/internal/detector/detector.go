@@ -635,9 +635,6 @@ func LibrariesLoader(
 	}
 
 	resolver := librariesresolver.NewCppResolver()
-	if err := resolver.ScanIDEBuiltinLibraries(lm); err != nil {
-		return nil, nil, nil, errors.WithStack(err)
-	}
 	if err := resolver.ScanUserAndUnmanagedLibraries(lm); err != nil {
 		return nil, nil, nil, errors.WithStack(err)
 	}

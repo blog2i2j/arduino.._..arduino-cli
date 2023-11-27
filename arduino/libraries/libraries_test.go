@@ -45,7 +45,6 @@ func TestLibLayoutAndLocationJSONUnMarshaler(t *testing.T) {
 		require.NoError(t, err)
 		require.Equal(t, l, m)
 	}
-	testLocation(IDEBuiltIn)
 	testLocation(PlatformBuiltIn)
 	testLocation(ReferencedPlatformBuiltIn)
 	testLocation(User)

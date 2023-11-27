@@ -65,7 +65,6 @@ func runExamplesCommand(cmd *cobra.Command, args []string) {
 
 	res, err := lib.LibraryList(context.Background(), &rpc.LibraryListRequest{
 		Instance: instance,
-		All:      true,
 		Name:     name,
 		Fqbn:     fqbn.String(),
 	})

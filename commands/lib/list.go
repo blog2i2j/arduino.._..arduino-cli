@@ -51,7 +51,7 @@ func LibraryList(ctx context.Context, req *rpc.LibraryListRequest) (*rpc.Library
 
 	var allLibs []*installedLib
 	if fqbnString := req.GetFqbn(); fqbnString != "" {
-		allLibs = listLibraries(lm, req.GetUpdatable(), true)
+		allLibs = listLibraries(lm, req.GetUpdatable())
 		fqbn, err := cores.ParseFQBN(req.GetFqbn())
 		if err != nil {
 			return nil, &arduino.InvalidFQBNError{Cause: err}
@@ -91,7 +91,7 @@ func LibraryList(ctx context.Context, req *rpc.LibraryListRequest) (*rpc.Library
 			allLibs = append(allLibs, lib)
 		}
 	} else {
-		allLibs = listLibraries(lm, req.GetUpdatable(), req.GetAll())
+		allLibs = listLibraries(lm, req.GetUpdatable())
 	}
 
 	installedLibs := []*rpc.InstalledLibrary{}
@@ -118,7 +118,7 @@ func LibraryList(ctx context.Context, req *rpc.LibraryListRequest) (*rpc.Library
 
 // listLibraries returns the list of installed libraries. If updatable is true it
 // returns only the libraries that may be updated.
-func listLibraries(lm *librariesmanager.LibrariesManager, updatable bool, all bool) []*installedLib {
+func listLibraries(lm *librariesmanager.LibrariesManager, updatable bool) []*installedLib {
 	res := []*installedLib{}
 	for _, libAlternatives := range lm.Libraries {
 		for _, lib := range libAlternatives {

@@ -503,12 +503,11 @@ func (inst *ArduinoCLIInstance) Compile(ctx context.Context, fqbn, sketchPath st
 }
 
 // LibraryList calls the "LibraryList" gRPC method.
-func (inst *ArduinoCLIInstance) LibraryList(ctx context.Context, name, fqbn string, all, updatable bool) (*commands.LibraryListResponse, error) {
+func (inst *ArduinoCLIInstance) LibraryList(ctx context.Context, name, fqbn string, updatable bool) (*commands.LibraryListResponse, error) {
 	req := &commands.LibraryListRequest{
 		Instance:  inst.instance,
 		Name:      name,
 		Fqbn:      fqbn,
-		All:       all,
 		Updatable: updatable,
 	}
 	logCallf(">>> LibraryList(%v) -> ", req)
@@ -520,11 +519,8 @@ func (inst *ArduinoCLIInstance) LibraryList(ctx context.Context, name, fqbn stri
 }
 
 // LibraryInstall calls the "LibraryInstall" gRPC method.
-func (inst *ArduinoCLIInstance) LibraryInstall(ctx context.Context, name, version string, noDeps, noOverwrite, installAsBundled bool) (commands.ArduinoCoreService_LibraryInstallClient, error) {
+func (inst *ArduinoCLIInstance) LibraryInstall(ctx context.Context, name, version string, noDeps, noOverwrite bool) (commands.ArduinoCoreService_LibraryInstallClient, error) {
 	installLocation := commands.LibraryInstallLocation_LIBRARY_INSTALL_LOCATION_USER
-	if installAsBundled {
-		installLocation = commands.LibraryInstallLocation_LIBRARY_INSTALL_LOCATION_BUILTIN
-	}
 	req := &commands.LibraryInstallRequest{
 		Instance:        inst.instance,
 		Name:            name,

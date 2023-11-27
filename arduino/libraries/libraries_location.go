@@ -27,10 +27,8 @@ type LibraryLocation int
 
 // The enumeration is listed in ascending order of priority
 const (
-	// IDEBuiltIn are libraries bundled in the IDE
-	IDEBuiltIn LibraryLocation = iota
 	// PlatformBuiltIn are libraries bundled in a PlatformRelease
-	PlatformBuiltIn
+	PlatformBuiltIn LibraryLocation = iota
 	// ReferencedPlatformBuiltIn are libraries bundled in a PlatformRelease referenced for build
 	ReferencedPlatformBuiltIn
 	// User are user installed libraries
@@ -42,8 +40,6 @@ const (
 
 func (d *LibraryLocation) String() string {
 	switch *d {
-	case IDEBuiltIn:
-		return "ide"
 	case PlatformBuiltIn:
 		return "platform"
 	case ReferencedPlatformBuiltIn:
@@ -69,9 +65,6 @@ func (d *LibraryLocation) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	switch s {
-	case "ide":
-		*d = IDEBuiltIn
-		return nil
 	case "platform":
 		*d = PlatformBuiltIn
 		return nil
@@ -92,8 +85,6 @@ func (d *LibraryLocation) UnmarshalJSON(b []byte) error {
 // ToRPCLibraryLocation converts this LibraryLocation to rpc.LibraryLocation
 func (d *LibraryLocation) ToRPCLibraryLocation() rpc.LibraryLocation {
 	switch *d {
-	case IDEBuiltIn:
-		return rpc.LibraryLocation_LIBRARY_LOCATION_BUILTIN
 	case PlatformBuiltIn:
 		return rpc.LibraryLocation_LIBRARY_LOCATION_PLATFORM_BUILTIN
 	case ReferencedPlatformBuiltIn:
@@ -110,8 +101,6 @@ func (d *LibraryLocation) ToRPCLibraryLocation() rpc.LibraryLocation {
 // FromRPCLibraryLocation converts a rpc.LibraryLocation to a LibraryLocation
 func FromRPCLibraryLocation(l rpc.LibraryLocation) LibraryLocation {
 	switch l {
-	case rpc.LibraryLocation_LIBRARY_LOCATION_BUILTIN:
-		return IDEBuiltIn
 	case rpc.LibraryLocation_LIBRARY_LOCATION_PLATFORM_BUILTIN:
 		return PlatformBuiltIn
 	case rpc.LibraryLocation_LIBRARY_LOCATION_REFERENCED_PLATFORM_BUILTIN:
@@ -128,8 +117,6 @@ func FromRPCLibraryLocation(l rpc.LibraryLocation) LibraryLocation {
 // FromRPCLibraryInstallLocation converts a rpc.LibraryInstallLocation to a LibraryLocation
 func FromRPCLibraryInstallLocation(l rpc.LibraryInstallLocation) LibraryLocation {
 	switch l {
-	case rpc.LibraryInstallLocation_LIBRARY_INSTALL_LOCATION_BUILTIN:
-		return IDEBuiltIn
 	case rpc.LibraryInstallLocation_LIBRARY_INSTALL_LOCATION_USER:
 		return User
 	default:

@@ -54,19 +54,6 @@ func (resolver *Cpp) ScanFromLibrariesManager(lm *librariesmanager.LibrariesMana
 	return nil
 }
 
-// ScanIDEBuiltinLibraries reads ide-builtin librariers loaded in the LibrariesManager to find
-// and cache all C++ headers for later retrieval.
-func (resolver *Cpp) ScanIDEBuiltinLibraries(lm *librariesmanager.LibrariesManager) error {
-	for _, libAlternatives := range lm.Libraries {
-		for _, lib := range libAlternatives {
-			if lib.Location == libraries.IDEBuiltIn {
-				resolver.ScanLibrary(lib)
-			}
-		}
-	}
-	return nil
-}
-
 // ScanUserAndUnmanagedLibraries reads user/unmanaged librariers loaded in the LibrariesManager to find
 // and cache all C++ headers for later retrieval.
 func (resolver *Cpp) ScanUserAndUnmanagedLibraries(lm *librariesmanager.LibrariesManager) error {
@@ -205,8 +192,6 @@ func ComputePriority(lib *libraries.Library, header, arch string) int {
 	}
 
 	switch lib.Location {
-	case libraries.IDEBuiltIn:
-		priority += 0
 	case libraries.ReferencedPlatformBuiltIn:
 		priority++
 	case libraries.PlatformBuiltIn:

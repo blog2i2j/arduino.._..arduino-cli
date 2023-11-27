@@ -279,7 +279,7 @@ func TestDaemonBundleLibInstall(t *testing.T) {
 
 	// Install libraries in bundled dir
 	{
-		instCl, err := grpcInst.LibraryInstall(context.Background(), "Arduino_BuiltIn", "", false, false, true)
+		instCl, err := grpcInst.LibraryInstall(context.Background(), "Arduino_BuiltIn", "", false, false)
 		require.NoError(t, err)
 		for {
 			msg, err := instCl.Recv()
@@ -293,7 +293,7 @@ func TestDaemonBundleLibInstall(t *testing.T) {
 
 	// Check if libraries are installed as expected
 	{
-		resp, err := grpcInst.LibraryList(context.Background(), "", "", true, false)
+		resp, err := grpcInst.LibraryList(context.Background(), "", "", false)
 		require.NoError(t, err)
 		libsAndLocation := map[string]commands.LibraryLocation{}
 		for _, lib := range resp.GetInstalledLibraries() {
@@ -302,14 +302,14 @@ func TestDaemonBundleLibInstall(t *testing.T) {
 		require.Contains(t, libsAndLocation, "Ethernet")
 		require.Contains(t, libsAndLocation, "SD")
 		require.Contains(t, libsAndLocation, "Firmata")
-		require.Equal(t, libsAndLocation["Ethernet"], commands.LibraryLocation_LIBRARY_LOCATION_BUILTIN)
+		require.Equal(t, libsAndLocation["Ethernet"], commands.LibraryLocation_LIBRARY_LOCATION_USER)
 		require.Equal(t, libsAndLocation["SD"], commands.LibraryLocation_LIBRARY_LOCATION_BUILTIN)
 		require.Equal(t, libsAndLocation["Firmata"], commands.LibraryLocation_LIBRARY_LOCATION_BUILTIN)
 	}
 
 	// Install a library in sketchbook to override bundled
 	{
-		instCl, err := grpcInst.LibraryInstall(context.Background(), "Ethernet", "", false, false, false)
+		instCl, err := grpcInst.LibraryInstall(context.Background(), "Ethernet", "", false, false)
 		require.NoError(t, err)
 		for {
 			msg, err := instCl.Recv()
@@ -324,7 +324,7 @@ func TestDaemonBundleLibInstall(t *testing.T) {
 	// Check if libraries are installed as expected
 	installedEthernetVersion := ""
 	{
-		resp, err := grpcInst.LibraryList(context.Background(), "", "", true, false)
+		resp, err := grpcInst.LibraryList(context.Background(), "", "", false)
 		require.NoError(t, err)
 		libsAndLocation := map[string]commands.LibraryLocation{}
 		for _, lib := range resp.GetInstalledLibraries() {
@@ -357,7 +357,7 @@ func TestDaemonBundleLibInstall(t *testing.T) {
 
 	// Check if libraries are installed as expected
 	{
-		resp, err := grpcInst.LibraryList(context.Background(), "", "", true, false)
+		resp, err := grpcInst.LibraryList(context.Background(), "", "", false)
 		require.NoError(t, err)
 		libsAndLocation := map[string]commands.LibraryLocation{}
 		for _, lib := range resp.GetInstalledLibraries() {
@@ -382,7 +382,7 @@ func TestDaemonBundleLibInstall(t *testing.T) {
 
 	// Install libraries in bundled dir (should now fail)
 	{
-		instCl, err := grpcInst.LibraryInstall(context.Background(), "Arduino_BuiltIn", "", false, false, true)
+		instCl, err := grpcInst.LibraryInstall(context.Background(), "Arduino_BuiltIn", "", false, false)
 		require.NoError(t, err)
 		for {
 			msg, err := instCl.Recv()
@@ -418,7 +418,7 @@ func TestDaemonLibrariesRescanOnInstall(t *testing.T) {
 	}))
 	cli.Run("lib", "install", "SD@1.2.3")
 
-	instCl, err := grpcInst.LibraryInstall(context.Background(), "SD", "1.2.4", false, false, true)
+	instCl, err := grpcInst.LibraryInstall(context.Background(), "SD", "1.2.4", false, false)
 
 	require.NoError(t, err)
 	for {

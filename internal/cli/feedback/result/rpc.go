@@ -170,7 +170,6 @@ type LibraryLocation string
 
 const (
 	LibraryLocationUser                      LibraryLocation = "user"
-	LibraryLocationIDEBuiltin                LibraryLocation = "ide"
 	LibraryLocationPlatformBuiltin           LibraryLocation = "platform"
 	LibraryLocationReferencedPlatformBuiltin LibraryLocation = "ref-platform"
 	LibraryLocationUnmanged                  LibraryLocation = "unmanaged"
@@ -178,18 +177,16 @@ const (
 
 func NewLibraryLocation(r rpc.LibraryLocation) LibraryLocation {
 	switch r {
-	case rpc.LibraryLocation_LIBRARY_LOCATION_BUILTIN:
-		return LibraryLocationIDEBuiltin
+	case rpc.LibraryLocation_LIBRARY_LOCATION_USER:
+		return LibraryLocationUser
 	case rpc.LibraryLocation_LIBRARY_LOCATION_PLATFORM_BUILTIN:
 		return LibraryLocationPlatformBuiltin
 	case rpc.LibraryLocation_LIBRARY_LOCATION_REFERENCED_PLATFORM_BUILTIN:
 		return LibraryLocationReferencedPlatformBuiltin
-	case rpc.LibraryLocation_LIBRARY_LOCATION_USER:
-		return LibraryLocationUser
 	case rpc.LibraryLocation_LIBRARY_LOCATION_UNMANAGED:
 		return LibraryLocationUnmanged
 	}
-	return LibraryLocationIDEBuiltin
+	return LibraryLocationUser
 }
 
 type LibraryLayout string

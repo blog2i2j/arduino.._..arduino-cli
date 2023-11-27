@@ -56,8 +56,6 @@ enum LibraryInstallLocation {
   // In the `libraries` subdirectory of the user directory (sketchbook). This is
   // the default if not specified.
   LIBRARY_INSTALL_LOCATION_USER = 0;
-  // In the configured 'builtin.libraries' directory.
-  LIBRARY_INSTALL_LOCATION_BUILTIN = 1;
 }
 
 message LibraryInstallResponse {
@@ -226,18 +224,15 @@ message DownloadResource {
 message LibraryListRequest {
   // Arduino Core Service instance from the `Init` response.
   Instance instance = 1;
-  // Whether to include built-in libraries (from platforms and the Arduino
-  // IDE) in the listing.
-  bool all = 2;
   // Whether to list only libraries for which there is a newer version than
   // the installed version available in the libraries index.
-  bool updatable = 3;
+  bool updatable = 2;
   // If set filters out the libraries not matching name
-  string name = 4;
+  string name = 3;
   // By setting this field all duplicate libraries are filtered out leaving
   // only the libraries that will be used to compile for the specified board
   // FQBN.
-  string fqbn = 5;
+  string fqbn = 4;
 }
 
 message LibraryListResponse {
@@ -324,18 +319,16 @@ enum LibraryLayout {
 }
 
 enum LibraryLocation {
-  // In the configured 'builtin.libraries' directory.
-  LIBRARY_LOCATION_BUILTIN = 0;
   // In the `libraries` subdirectory of the user directory (sketchbook).
-  LIBRARY_LOCATION_USER = 1;
+  LIBRARY_LOCATION_USER = 0;
   // In the `libraries` subdirectory of a platform.
-  LIBRARY_LOCATION_PLATFORM_BUILTIN = 2;
+  LIBRARY_LOCATION_PLATFORM_BUILTIN = 1;
   // When `LibraryLocation` is used in a context where a board is specified,
   // this indicates the library is in the `libraries` subdirectory of a
   // platform referenced by the board's platform.
-  LIBRARY_LOCATION_REFERENCED_PLATFORM_BUILTIN = 3;
+  LIBRARY_LOCATION_REFERENCED_PLATFORM_BUILTIN = 2;
   // Outside the `libraries` folders managed by the CLI.
-  LIBRARY_LOCATION_UNMANAGED = 4;
+  LIBRARY_LOCATION_UNMANAGED = 3;
 }
 
 message ZipLibraryInstallRequest {

@@ -157,8 +157,6 @@ func (lm *LibrariesManager) getLibrariesDir(installLocation libraries.LibraryLoc
 	switch installLocation {
 	case libraries.User:
 		return nil, errors.New(tr("user directory not set"))
-	case libraries.IDEBuiltIn:
-		return nil, errors.New(tr("built-in libraries directory not set"))
 	default:
 		return nil, fmt.Errorf("libraries directory not set: %s", installLocation.String())
 	}

@@ -889,7 +889,6 @@ func callLibList(client rpc.ArduinoCoreServiceClient, instance *rpc.Instance) {
 	libLstResp, err := client.LibraryList(context.Background(),
 		&rpc.LibraryListRequest{
 			Instance:  instance,
-			All:       false,
 			Updatable: false,
 		})
 

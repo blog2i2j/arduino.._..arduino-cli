@@ -33,7 +33,6 @@ import (
 )
 
 func initListCommand() *cobra.Command {
-	var all bool
 	var updatable bool
 	listCommand := &cobra.Command{
 		Use:   fmt.Sprintf("list [%s]", tr("LIBNAME")),
@@ -48,18 +47,17 @@ not listed, they can be listed by adding the --all flag.`),
 		Run: func(cmd *cobra.Command, args []string) {
 			instance := instance.CreateAndInit()
 			logrus.Info("Executing `arduino-cli lib list`")
-			List(instance, args, all, updatable)
+			List(instance, args, updatable)
 		},
 	}
-	listCommand.Flags().BoolVar(&all, "all", false, tr("Include built-in libraries (from platforms and IDE) in listing."))
 	fqbn.AddToCommand(listCommand)
 	listCommand.Flags().BoolVar(&updatable, "updatable", false, tr("List updatable libraries."))
 	return listCommand
 }
 
 // List gets and prints a list of installed libraries.
-func List(instance *rpc.Instance, args []string, all bool, updatable bool) {
-	installedLibs := GetList(instance, args, all, updatable)
+func List(instance *rpc.Instance, args []string, updatable bool) {
+	installedLibs := GetList(instance, args, updatable)
 
 	installedLibsResult := make([]*result.InstalledLibrary, len(installedLibs))
 	for i, v := range installedLibs {
@@ -76,7 +74,6 @@ func List(instance *rpc.Instance, args []string, all bool, updatable bool) {
 func GetList(
 	instance *rpc.Instance,
 	args []string,
-	all bool,
 	updatable bool,
 ) []*rpc.InstalledLibrary {
 	name := ""
@@ -86,7 +83,6 @@ func GetList(
 
 	res, err := lib.LibraryList(context.Background(), &rpc.LibraryListRequest{
 		Instance:  instance,
-		All:       all,
 		Updatable: updatable,
 		Name:      name,
 		Fqbn:      fqbn.String(),
