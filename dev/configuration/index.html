@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://arduino.github.io/arduino-cli/dev/configuration/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.3.6">
     
     
       
@@ -581,6 +581,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../commands/arduino-cli_config_get/" class="md-nav__link">
+        config get
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../commands/arduino-cli_config_remove/" class="md-nav__link">
         config remove
       </a>
@@ -737,6 +751,20 @@
     <li class="md-nav__item">
       <a href="../commands/arduino-cli_debug/" class="md-nav__link">
         debug
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/arduino-cli_debug_check/" class="md-nav__link">
+        debug check
       </a>
     </li>
   
@@ -1106,6 +1134,19 @@
     Configuration keys
   </a>
   
+    <nav class="md-nav" aria-label="Configuration keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-directories" class="md-nav__link">
+    Default directories
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1163,20 +1204,6 @@
   
     <nav class="md-nav" aria-label="Configuration file">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-name" class="md-nav__link">
-    File name
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-formats" class="md-nav__link">
-    Supported formats
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#locations" class="md-nav__link">
@@ -1400,6 +1427,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        Backward compatibility policy
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1429,6 +1471,19 @@
   <a href="#configuration-keys" class="md-nav__link">
     Configuration keys
   </a>
+  
+    <nav class="md-nav" aria-label="Configuration keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-directories" class="md-nav__link">
+    Default directories
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1489,20 +1544,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#file-name" class="md-nav__link">
-    File name
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-formats" class="md-nav__link">
-    Supported formats
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#locations" class="md-nav__link">
     Locations
   </a>
@@ -1556,6 +1597,8 @@
 <ul>
 <li><code>board_manager</code><ul>
 <li><code>additional_urls</code> - the URLs to any additional Boards Manager package index files needed for your boards platforms.</li>
+<li><code>enable_unsafe_install</code> - set to <code>true</code> to allow installation of packages that do not pass the checksum test. This
+  is considered an unsafe installation method and should be used only for development purposes.</li>
 </ul>
 </li>
 <li><code>daemon</code> - options related to running Arduino CLI as a <a href="https://grpc.io">gRPC</a> server.<ul>
@@ -1566,12 +1609,11 @@
 <li><code>data</code> - directory used to store Boards/Library Manager index files and Boards Manager platform installations.</li>
 <li><code>downloads</code> - directory used to stage downloaded archives during Boards/Library Manager installations.</li>
 <li><code>user</code> - the equivalent of the Arduino IDE's <a href="../sketch-specification/#sketchbook">"sketchbook" directory</a>. Library Manager
-  installations are made to the <code>libraries</code> subdirectory of the user directory.</li>
+  installations are made to the <code>libraries</code> subdirectory of the user directory. Users can manually install 3rd party
+  platforms in the <code>hardware</code> subdirectory of the user directory.</li>
 <li><code>builtin.libraries</code> - the libraries in this directory will be available to all platforms without the need for the
   user to install them, but with the lowest priority over other installed libraries with the same name, it's the
   equivalent of the Arduino IDE's bundled libraries directory.</li>
-<li><code>builtin.tools</code> - it's a list of directories of tools that will be available to all platforms without the need for
-  the user to install them, it's the equivalent of the Arduino IDE 1.x bundled tools directory.</li>
 </ul>
 </li>
 <li><code>library</code> - configuration options relating to Arduino libraries.<ul>
@@ -1609,6 +1651,8 @@
 </ul>
 </li>
 <li><code>build_cache</code> configuration options related to the compilation cache<ul>
+<li><code>path</code> - the path to the folder under which build caches are stored.</li>
+<li><code>extra_paths</code> - a list of paths to look for precompiled artifacts if not found on <code>build_cache.path</code> setting.</li>
 <li><code>compilations_before_purge</code> - interval, in number of compilations, at which the cache is purged, defaults to <code>10</code>.
   When <code>0</code> the cache is never purged.</li>
 <li><code>ttl</code> - cache expiration time of build folders. If the cache is hit by a compilation the corresponding build files
@@ -1618,6 +1662,44 @@
 </li>
 <li><code>network</code> - configuration options related to the network connection.<ul>
 <li><code>proxy</code> - URL of the proxy server.</li>
+<li><code>connection_timeout</code> - network connection timeout, the value format must be a valid input for
+  <a href="https://pkg.go.dev/time#ParseDuration">time.ParseDuration()</a>, defaults to <code>60s</code> (60 seconds). <code>0</code> means it will
+  wait indefinitely.</li>
+<li><code>cloud_api.skip_board_detection_calls</code> - if set to <code>true</code> it will make the Arduino CLI skip network calls to Arduino
+  Cloud API to help detection of an unknown board.</li>
+</ul>
+</li>
+</ul>
+<h3 id="default-directories">Default directories<a class="headerlink" href="#default-directories" title="Permanent link">&para;</a></h3>
+<p>The following are the default directories selected by the Arduino CLI if alternatives are not specified in the
+configuration file.</p>
+<ul>
+<li>The <code>build_cache.path</code> default is OS-dependent:<ul>
+<li>on Linux (and other Unix-based OS) is: if
+  <a href="https://specifications.freedesktop.org/basedir-spec/latest/#variables"><code>$XDG_CACHE_HOME</code></a> is defined,
+  <code>$XDG_CACHE_HOME/arduino</code>. Otherwise <code>{HOME}/.config/arduino</code>.</li>
+<li>on Windows is: <code>{HOME}/AppData/Local/arduino</code></li>
+<li>on MacOS is: <code>{HOME}/Library/Caches/arduino</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>The <code>directories.data</code> default is OS-dependent:<ul>
+<li>on Linux (and other Unix-based OS) is: <code>{HOME}/.arduino15</code></li>
+<li>on Windows is: <code>{HOME}/AppData/Local/Arduino15</code></li>
+<li>on MacOS is: <code>{HOME}/Library/Arduino15</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>The <code>directories.downloads</code> default is <code>{directories.data}/staging</code>. If the value of <code>{directories.data}</code> is changed
+  in the configuration the user-specified value will be used.</li>
+</ul>
+<ul>
+<li>The <code>directories.user</code> default is OS-dependent:<ul>
+<li>on Linux (and other Unix-based OS) is: <code>{HOME}/Arduino</code></li>
+<li>on Windows is: <code>{DOCUMENTS}/Arduino</code></li>
+<li>on MacOS is: <code>{HOME}/Documents/Arduino</code></li>
 </ul>
 </li>
 </ul>
@@ -1653,29 +1735,17 @@ can use the <a href="https://docs.microsoft.com/en-us/windows-server/administrat
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ARDUINO_BOARD_MANAGER_ADDITIONAL_URLS</span><span class="o">=</span><span class="s2">&quot;https://downloads.arduino.cc/packages/package_staging_index.json https://downloads.arduino.cc/packages/package_mbed_index.json&quot;</span>
 </code></pre></div>
 <h3 id="configuration-file">Configuration file<a class="headerlink" href="#configuration-file" title="Permanent link">&para;</a></h3>
-<p><a href="../commands/arduino-cli_config_init/"><code>arduino-cli config init</code></a> creates or updates a configuration file with the current
-configuration settings.</p>
+<p><a href="../commands/arduino-cli_config_init/"><code>arduino-cli config init</code></a> creates a new empty configuration file.</p>
 <p>This allows saving the options set by command line flags or environment variables. For example:</p>
 <div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>config<span class="w"> </span>init<span class="w"> </span>--additional-urls<span class="w"> </span>https://downloads.arduino.cc/packages/package_staging_index.json
 </code></pre></div>
-<h4 id="file-name">File name<a class="headerlink" href="#file-name" title="Permanent link">&para;</a></h4>
-<p>The configuration file must be named <code>arduino-cli</code>, with the appropriate file extension for the file's format.</p>
-<h4 id="supported-formats">Supported formats<a class="headerlink" href="#supported-formats" title="Permanent link">&para;</a></h4>
-<p><code>arduino-cli config init</code> creates a YAML file, however a variety of common formats are supported:</p>
-<ul>
-<li><a href="https://www.json.org">JSON</a></li>
-<li><a href="https://github.com/toml-lang/toml">TOML</a></li>
-<li><a href="https://en.wikipedia.org/wiki/YAML">YAML</a></li>
-<li><a href="https://en.wikipedia.org/wiki/.properties">Java properties file</a></li>
-<li><a href="https://github.com/hashicorp/hcl">HCL</a></li>
-<li>envfile</li>
-<li><a href="https://en.wikipedia.org/wiki/INI_file">INI</a></li>
-</ul>
 <h4 id="locations">Locations<a class="headerlink" href="#locations" title="Permanent link">&para;</a></h4>
-<p>Configuration files in the following locations are recognized by Arduino CLI:</p>
+<p>The default configuration file is named <code>arduino-cli.yaml</code>. The configuration file is searched in the following
+locations, in order of priority:</p>
 <ol>
 <li>Location specified by the <a href="../commands/arduino-cli/"><code>--config-file</code></a> command line flag</li>
-<li>Arduino CLI data directory (as configured by <code>directories.data</code>)</li>
+<li>Location specified by the <code>ARDUINO_CONFIG_FILE</code> environment variable</li>
+<li>Location specified by the <code>ARDUINO_DIRECTORIES_DATA</code> environment variable</li>
 </ol>
 <p>If multiple configuration files are present, the one highest on the above list is used. Configuration files are not
 combined.</p>
@@ -1690,7 +1760,7 @@ combined.</p>
 </code></pre></div>
 <p>Doing the same using a TOML format file:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[board_manager]</span>
-<span class="n">additional_urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s">&quot;https://downloads.arduino.cc/packages/package_staging_index.json&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="n">additional_urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;https://downloads.arduino.cc/packages/package_staging_index.json&quot;</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 <h4 id="json-schema">JSON schema<a class="headerlink" href="#json-schema" title="Permanent link">&para;</a></h4>
 <p>The configuration file <a href="../configuration.schema.json">JSON schema</a> can be used to independently validate the file content. This

@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://arduino.github.io/arduino-cli/dev/commands/arduino-cli_outdated/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.3.6">
     
     
       
@@ -583,6 +583,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../arduino-cli_config_get/" class="md-nav__link">
+        config get
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../arduino-cli_config_remove/" class="md-nav__link">
         config remove
       </a>
@@ -739,6 +753,20 @@
     <li class="md-nav__item">
       <a href="../arduino-cli_debug/" class="md-nav__link">
         debug
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arduino-cli_debug_check/" class="md-nav__link">
+        debug check
       </a>
     </li>
   
@@ -1342,6 +1370,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../versioning/" class="md-nav__link">
+        Backward compatibility policy
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1449,12 +1492,13 @@ that can be upgraded. If nothing needs to be updated the output is empty.</p>
 </code></pre></div>
 <h3 id="options-inherited-from-parent-commands">Options inherited from parent commands<a class="headerlink" href="#options-inherited-from-parent-commands" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>      --additional-urls strings   Comma-separated list of additional URLs for the Boards Manager.
+      --config-dir string         Sets the default data directory (Arduino CLI will look for configuration file in this directory).
       --config-file string        The custom config file (if not specified the default will be used).
-      --format string             The output format for the logs, can be: text, json, jsonmini, yaml (default &quot;text&quot;)
+      --json                      Print the output in JSON format.
       --log                       Print the logs on the standard output.
       --log-file string           Path to the file where logs will be written.
-      --log-format string         The output format for the logs, can be: text, json
-      --log-level string          Messages with this level and above will be logged. Valid levels are: trace, debug, info, warn, error, fatal, panic
+      --log-format string         The output format for the logs, can be: text, json (default &quot;text&quot;)
+      --log-level string          Messages with this level and above will be logged. Valid levels are: trace, debug, info, warn, error, fatal, panic (default &quot;info&quot;)
       --no-color                  Disable colored output.
 </code></pre></div>
 <h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>

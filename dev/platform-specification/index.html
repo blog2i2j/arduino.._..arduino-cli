@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://arduino.github.io/arduino-cli/dev/platform-specification/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.3.6">
     
     
       
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hardware-folders-structure" class="md-skip">
+        <a href="#platform-installation-directories" class="md-skip">
           Skip to content
         </a>
       
@@ -581,6 +581,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../commands/arduino-cli_config_get/" class="md-nav__link">
+        config get
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../commands/arduino-cli_config_remove/" class="md-nav__link">
         config remove
       </a>
@@ -737,6 +751,20 @@
     <li class="md-nav__item">
       <a href="../commands/arduino-cli_debug/" class="md-nav__link">
         debug
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/arduino-cli_debug_check/" class="md-nav__link">
+        debug check
       </a>
     </li>
   
@@ -1192,9 +1220,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hardware-folders-structure" class="md-nav__link">
-    Hardware Folders structure
+  <a href="#platform-installation-directories" class="md-nav__link">
+    Platform installation directories
   </a>
+  
+    <nav class="md-nav" aria-label="Platform installation directories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes-about-choosing-the-architecture-name" class="md-nav__link">
+    Notes about choosing the architecture name
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1812,6 +1853,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        Backward compatibility policy
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1838,9 +1894,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hardware-folders-structure" class="md-nav__link">
-    Hardware Folders structure
+  <a href="#platform-installation-directories" class="md-nav__link">
+    Platform installation directories
   </a>
+  
+    <nav class="md-nav" aria-label="Platform installation directories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes-about-choosing-the-architecture-name" class="md-nav__link">
+    Notes about choosing the architecture name
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2381,25 +2450,58 @@
 <p>Platforms add support for new boards to the Arduino development software. They are installable either via
 <a href="../package_index_json-specification/">Boards Manager</a> or manual installation to the <em>hardware</em> folder of Arduino's
 sketchbook folder (AKA "user directory").<br> A platform may consist of as little as a single configuration file.</p>
-<h2 id="hardware-folders-structure">Hardware Folders structure<a class="headerlink" href="#hardware-folders-structure" title="Permanent link">&para;</a></h2>
-<p>The new hardware folders have a hierarchical structure organized in two levels:</p>
+<h2 id="platform-installation-directories">Platform installation directories<a class="headerlink" href="#platform-installation-directories" title="Permanent link">&para;</a></h2>
+<p>If the platforms are installed using the Board Manager the installation directory location will be as follow:</p>
+<p><code>{directories.data}/packages/{VENDOR_NAME}/hardware/{ARCHITECTURE}/{VERSION}/...</code></p>
 <ul>
-<li>the first level is the vendor/maintainer</li>
-<li>the second level is the supported architecture</li>
+<li><code>{directories.data}</code> is the data directory as specified in the
+  <a href="../configuration/#default-directories">configuration file</a>.</li>
+<li><code>{VENDOR_NAME}</code> is the identifier of the vendor/maintainer of the platform.</li>
+<li><code>{ARCHITECTURE}</code> is the architecture of the CPU used in the platform.</li>
+<li><code>{VERSION}</code> is the platform version.</li>
 </ul>
-<p>A vendor/maintainer can have multiple supported architectures. For example, below we have three hardware vendors called
-"arduino", "yyyyy" and "xxxxx":</p>
-<div class="highlight"><pre><span></span><code>hardware/arduino/avr/...     - Arduino - AVR Boards
-hardware/arduino/sam/...     - Arduino - SAM (32bit ARM) Boards
-hardware/yyyyy/avr/...       - Yyy - AVR
-hardware/xxxxx/avr/...       - Xxx - AVR
+<p>Alternatively, a platform may be manually installed by the user inside the Sketchbook/user directory as follows:</p>
+<p><code>{directories.user}/hardware/{VENDOR_NAME}/{ARCHITECTURE}/...</code></p>
+<ul>
+<li><code>{directories.user}</code> is the user directory as specified in the
+  <a href="../configuration/#default-directories">configuration file</a>.</li>
+<li><code>{VENDOR_NAME}</code> is the identifier of the vendor/maintainer of the platform.<ul>
+<li>The name of the vendor directory must not contain any characters other than the letters <code>A</code>-<code>Z</code> and <code>a</code>-<code>z</code>, numbers
+  (<code>0</code>-<code>9</code>), underscores (<code>_</code>), dashes (<code>-</code>), and dots (<code>.</code>).</li>
+</ul>
+</li>
+<li><code>{ARCHITECTURE}</code> is the architecture of the CPU used in the platform.<ul>
+<li>The name of the architecture directory must not contain any characters other than the letters <code>A</code>-<code>Z</code> and <code>a</code>-<code>z</code>,
+  numbers (<code>0</code>-<code>9</code>), underscores (<code>_</code>), dashes (<code>-</code>), and dots (<code>.</code>).</li>
+</ul>
+</li>
+</ul>
+<p>A vendor/maintainer may have multiple supported architectures.</p>
+<p>Let's see an example, below we have a bunch of platforms downloaded from three hardware vendors <code>arduino</code>, <code>adafruit</code>
+and <code>esp32</code>, and installed using the Board Manager:</p>
+<div class="highlight"><pre><span></span><code>{directories.data}/packages/arduino/hardware/avr/1.8.6/...
+{directories.data}/packages/arduino/hardware/esp32/2.0.18-arduino.5/...
+{directories.data}/packages/arduino/hardware/nrf52/1.4.5/...
+{directories.data}/packages/adafruit/hardware/nrf52/1.6.1/...
+{directories.data}/packages/esp32/hardware/esp32/3.0.7/...
 </code></pre></div>
-<p>The vendor "arduino" has two supported architectures (AVR and SAM), while "xxxxx" and "yyyyy" have only AVR.</p>
+<p>In this example three architectures have been installed from the vendor <code>arduino</code> (<code>avr</code>, <code>esp32</code> and <code>nrf52</code>), and one
+from <code>adafruit</code> and <code>esp32</code> (<code>nrf52</code> and <code>esp32</code> respectively). Note that the vendor <code>esp32</code> has the same name as the
+architecture <code>esp32</code>.</p>
+<p>If the user manually installed the same platforms, they should have unpacked them in the following directories:</p>
+<div class="highlight"><pre><span></span><code>{directories.user}/hardware/arduino/avr/...
+{directories.user}/hardware/arduino/esp32/...
+{directories.user}/hardware/arduino/nrf52/...
+{directories.user}/hardware/adafruit/nrf52/...
+{directories.user}/hardware/esp32/esp32/...
+</code></pre></div>
+<p>In this latter case the version must be omitted.</p>
+<h3 id="notes-about-choosing-the-architecture-name">Notes about choosing the architecture name<a class="headerlink" href="#notes-about-choosing-the-architecture-name" title="Permanent link">&para;</a></h3>
 <p>Architecture values are case sensitive (e.g. <code>AVR</code> != <code>avr</code>).</p>
-<p>If possible, follow existing architecture name conventions when creating hardware packages. Use the vendor folder name
-to differentiate your package. The architecture folder name is used to determine library compatibility and to permit
-referencing resources from another core of the same architecture, so use of a non-standard architecture name can have a
-harmful effect.</p>
+<p>Platform developers should follow the existing architecture name conventions when creating hardware packages, if you
+need to differentiate your package use the vendor/maintainer folder name to do so.</p>
+<p>The architecture name is used to determine the libraries compatibility and to permit referencing resources from another
+platform of the same architecture. Use of a non-standard architecture name can have a harmful effect.</p>
 <h2 id="architecture-configurations">Architecture configurations<a class="headerlink" href="#architecture-configurations" title="Permanent link">&para;</a></h2>
 <p>Each architecture must be configured through a set of configuration files:</p>
 <ul>
@@ -2436,8 +2538,9 @@ suffixes are <code>.linux</code>, <code>.windows</code> and <code>.macosx</code>
 <h4 id="global-predefined-properties">Global Predefined properties<a class="headerlink" href="#global-predefined-properties" title="Permanent link">&para;</a></h4>
 <p>The following automatically generated properties can be used globally in all configuration files:</p>
 <ul>
-<li><code>{runtime.platform.path}</code>: the absolute path of the <a href="#platform-terminology">board platform</a> folder (i.e. the folder
-  containing boards.txt)</li>
+<li><code>{runtime.platform.path}</code>: is the absolute path of the <a href="#platform-terminology">board platform</a> folder (i.e. the folder
+  containing boards.txt) unless <code>{runtime.use_core_platform_path_for_runtime_platform_path}</code> is set to <code>true</code> in this
+  case, the value is the absolute path of the referenced core platform.</li>
 <li><code>{runtime.hardware.path}</code>: the absolute path of the hardware folder (i.e. the folder containing the
   <a href="#platform-terminology">board platform</a> folder)</li>
 <li><code>{runtime.ide.path}</code>: the absolute path of the Arduino IDE or Arduino CLI folder</li>
@@ -2466,8 +2569,12 @@ suffixes are <code>.linux</code>, <code>.windows</code> and <code>.macosx</code>
 <li><code>{extra.time.zone}</code>: local timezone offset without the DST component</li>
 <li><code>{extra.time.dst}</code>: local daylight savings time offset</li>
 </ul>
-<p>Compatibility note: Versions before Arduino IDE 1.6.0 only used one digit per version number component in
-<code>{runtime.ide.version}</code> (so 1.5.9 was <code>159</code>, not <code>10509</code>).</p>
+<p>Compatibility notes:</p>
+<ul>
+<li>Versions before Arduino IDE 1.6.0 only used one digit per version number component in <code>{runtime.ide.version}</code> (so
+  1.5.9 was <code>159</code>, not <code>10509</code>).</li>
+<li><code>{runtime.use_core_platform_path_for_runtime_platform_path}</code> support is available from Arduino CLI &gt;=1.0.4.</li>
+</ul>
 <h2 id="platformtxt">platform.txt<a class="headerlink" href="#platformtxt" title="Permanent link">&para;</a></h2>
 <p>The platform.txt file contains information about a platform's specific aspects (compilers command line flags, paths,
 system libraries, etc.).</p>
@@ -2767,6 +2874,8 @@ be placed in the same folder as the <code>platform.txt</code> it supplements.</p
 <p>This file contains definitions and metadata for the boards supported by the platform. Boards are referenced by their
 short name, the board ID. The settings for a board are defined through a set of properties with keys having the board ID
 as prefix.</p>
+<p>The board ID must not contain any characters other than the letters <code>A</code>-<code>Z</code> and <code>a</code>-<code>z</code>, numbers (<code>0</code>-<code>9</code>), underscores
+(<code>_</code>), and dashes (<code>-</code>).</p>
 <p>For example, the board ID chosen for the Arduino Uno board is "uno". An extract of the Uno board configuration in
 boards.txt looks like:</p>
 <div class="highlight"><pre><span></span><code>[......]
@@ -2796,6 +2905,9 @@ uno.build.variant       =&gt;   build.variant
 overwritten respectively by <strong>{uno.build.mcu}</strong> and <strong>{uno.build.board}</strong> when the Uno board is selected! Moreover the
 following properties are automatically generated:</p>
 <ul>
+<li><code>{build.board.platform.path}</code>: The path to the selected board's platform. (available since Arduino CLI &gt;=1.0.4)</li>
+<li><code>{build.core.platform.path}</code>: The path to the core's platform. It may differ from the board's platform path because
+  the latter may reference a core from another platform. (available since Arduino CLI &gt;=1.0.4)</li>
 <li><code>{build.core.path}</code>: The path to the selected board's core folder (inside the <a href="#platform-terminology">core platform</a>,
   for example hardware/arduino/avr/core/arduino)</li>
 <li><code>{build.system.path}</code>: The path to the <a href="#platform-terminology">core platform</a>'s system folder if available (for
@@ -2806,14 +2918,14 @@ following properties are automatically generated:</p>
 <p>If the platform supports pluggable discovery it may also declare a set of <code>upload_port.*</code> properties, these properties
 will be used to identify a board by the discovery process when plugged in.</p>
 <p>For example we could declare a series of <code>upload_port.vid</code> and <code>upload_port.pid</code> properties for the Uno like so:</p>
-<div class="highlight"><pre><span></span><code>uno.upload_port.vid.0=0x2341
-uno.upload_port.pid.0=0x0043
-uno.upload_port.vid.1=0x2341
-uno.upload_port.pid.1=0x0001
-uno.upload_port.vid.2=0x2A03
-uno.upload_port.pid.2=0x0043
-uno.upload_port.vid.3=0x2341
-uno.upload_port.pid.3=0x0243
+<div class="highlight"><pre><span></span><code>uno.upload_port.0.vid=0x2341
+uno.upload_port.0.pid=0x0043
+uno.upload_port.1.vid=0x2341
+uno.upload_port.1.pid=0x0001
+uno.upload_port.2.vid=0x2A03
+uno.upload_port.2.pid=0x0043
+uno.upload_port.3.vid=0x2341
+uno.upload_port.3.pid=0x0243
 </code></pre></div>
 <p>In this case we're using the board's USB VID/PID pair to identify it but <code>upload_port.*</code> properties can be anything that
 can help identify a certain board. For more detailed information see the
@@ -3116,8 +3228,8 @@ tools.avrdude.upload.pattern=&quot;{cmd.path}&quot; &quot;-C{config.path}&quot; 
 <p>The Upload action is triggered when the user clicks on the "Upload" button on the IDE toolbar or uses
 <a href="../commands/arduino-cli_upload/"><code>arduino-cli upload</code></a>. Arduino uses the term "upload" for the process of transferring a
 program to the Arduino board.</p>
-<p>The <strong>upload.tool.&lt;protocol_name></strong> property determines the tool to be used for upload. A specific
-<strong>upload.tool.&lt;protocol_name></strong> property should be defined for every board in boards.txt:</p>
+<p>The <strong>upload.tool.&lt;protocol_name&gt;</strong> property determines the tool to be used for upload. A specific
+<strong>upload.tool.&lt;protocol_name&gt;</strong> property should be defined for every board in boards.txt:</p>
 <div class="highlight"><pre><span></span><code>[......]
 uno.upload.tool.serial=avrdude
 [......]
@@ -3529,8 +3641,11 @@ the board model, and so on...</p>
 This board was produced in two models, one with an ATmega168 microcontroller and another with an ATmega328P.<br> We are
 going then to define a custom option, using the "cpu" MENU_ID, that allows the user to choose between the two different
 microcontrollers.</p>
-<p>We must first define a set of <strong>menu.MENU_ID=Text</strong> properties. <strong>Text</strong> is what is displayed on the GUI for every
-custom menu we are going to create and must be declared at the beginning of the boards.txt file:</p>
+<p>We must first define a set of <strong>menu.MENU_ID=Text</strong> properties.</p>
+<p>The menu ID must not contain any characters other than the letters <code>A</code>-<code>Z</code> and <code>a</code>-<code>z</code>, numbers (<code>0</code>-<code>9</code>), underscores
+(<code>_</code>), and dashes (<code>-</code>).</p>
+<p><strong>Text</strong> is what is displayed on the GUI for every custom menu we are going to create and must be declared at the
+beginning of the boards.txt file:</p>
 <div class="highlight"><pre><span></span><code>menu.cpu=Processor
 [.....]
 </code></pre></div>
@@ -3556,7 +3671,10 @@ duemilanove.menu.cpu.atmega168=ATmega168
 </code></pre></div>
 <p>We have defined two values: "atmega328" and "atmega168".<br> Note that the property keys must follow the format
 <strong>BOARD_ID.menu.MENU_ID.OPTION_ID=Text</strong>, where <strong>Text</strong> is what is displayed under the "Processor" menu in the IDE's
-GUI.<br> Finally, the specific configuration for each option value:</p>
+GUI.</p>
+<p>The option ID must not contain any characters other than the letters <code>A</code>-<code>Z</code> and <code>a</code>-<code>z</code>, numbers (<code>0</code>-<code>9</code>), underscores
+(<code>_</code>), dashes (<code>-</code>), and equal signs (<code>=</code>).</p>
+<p>Finally, the specific configuration for each option value:</p>
 <div class="highlight"><pre><span></span><code>[.....]
 ## Arduino Duemilanove w/ ATmega328P
 duemilanove.menu.cpu.atmega328=ATmega328P

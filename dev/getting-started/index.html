@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://arduino.github.io/arduino-cli/dev/getting-started/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.3.6">
     
     
       
@@ -675,6 +675,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../commands/arduino-cli_config_get/" class="md-nav__link">
+        config get
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../commands/arduino-cli_config_remove/" class="md-nav__link">
         config remove
       </a>
@@ -831,6 +845,20 @@
     <li class="md-nav__item">
       <a href="../commands/arduino-cli_debug/" class="md-nav__link">
         debug
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/arduino-cli_debug_check/" class="md-nav__link">
+        debug check
       </a>
     </li>
   
@@ -1355,6 +1383,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        Backward compatibility policy
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1462,40 +1505,40 @@
                 
                   <h1>Getting started</h1>
                 
-                <p>Despite the lack of feature parity at the moment, Arduino CLI provides many of the features you can find in the Arduino
-IDE. Let's see some examples.</p>
+                <p>Arduino CLI provides all the features you can find in the Arduino IDE. Let's see some examples.</p>
 <h2 id="before-you-start">Before you start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h2>
 <p><code>arduino-cli</code> is a container of commands and each command has its own dedicated help text that can be shown with the
 <code>help</code> command like this:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>arduino-cli<span class="w"> </span><span class="nb">help</span><span class="w"> </span>core
-<span class="go">Arduino Core operations.</span>
+<span class="go">Arduino core operations.</span>
 
 <span class="go">Usage:</span>
-<span class="go">    arduino-cli core [command]</span>
+<span class="go">  arduino-cli core [command]</span>
 
 <span class="go">Examples:</span>
-<span class="go">    ./arduino-cli core update-index</span>
+<span class="go">  arduino-cli core update-index</span>
 
 <span class="go">Available Commands:</span>
-<span class="go">    download     Downloads one or more cores and corresponding tool dependencies.</span>
-<span class="go">    install      Installs one or more cores and corresponding tool dependencies.</span>
-<span class="go">    list         Shows the list of installed platforms.</span>
-<span class="go">    search       Search for a core in Boards Manager.</span>
-<span class="go">    uninstall    Uninstalls one or more cores and corresponding tool dependencies if no more used.</span>
-<span class="go">    update-index Updates the index of cores.</span>
-<span class="go">    upgrade      Upgrades one or all installed platforms to the latest version.</span>
+<span class="go">  download     Downloads one or more cores and corresponding tool dependencies.</span>
+<span class="go">  install      Installs one or more cores and corresponding tool dependencies.</span>
+<span class="go">  list         Shows the list of installed platforms.</span>
+<span class="go">  search       Search for a core in Boards Manager.</span>
+<span class="go">  uninstall    Uninstalls one or more cores and corresponding tool dependencies if no longer used.</span>
+<span class="go">  update-index Updates the index of cores.</span>
+<span class="go">  upgrade      Upgrades one or all installed platforms to the latest version.</span>
 
 <span class="go">Flags:</span>
-<span class="go">    -h, --help   help for core</span>
+<span class="go">  -h, --help   help for core</span>
 
 <span class="go">Global Flags:</span>
-<span class="go">        --additional-urls strings   Additional URLs for Boards Manager.</span>
-<span class="go">        --config-file string        The custom config file (if not specified the default will be used).</span>
-<span class="go">        --format string             The output format, can be [text|json]. (default &quot;text&quot;)</span>
-<span class="go">        --log-file string           Path to the file where logs will be written.</span>
-<span class="go">        --log-format string         The output format for the logs, can be [text|json].</span>
-<span class="go">        --log-level string          Messages with this level and above will be logged.</span>
-<span class="go">    -v, --verbose                   Print the logs on the standard output.</span>
+<span class="go">      --additional-urls strings   Comma-separated list of additional URLs for the Boards Manager.</span>
+<span class="go">      --config-file string        The custom config file (if not specified the default will be used).</span>
+<span class="go">      --json                      Print the output in JSON format.</span>
+<span class="go">      --log                       Print the logs on the standard output.</span>
+<span class="go">      --log-file string           Path to the file where logs will be written.</span>
+<span class="go">      --log-format string         The output format for the logs, can be: text, json</span>
+<span class="go">      --log-level string          Messages with this level and above will be logged. Valid levels are: trace, debug, info, warn, error, fatal, panic</span>
+<span class="go">      --no-color                  Disable colored output.</span>
 
 <span class="go">Use &quot;arduino-cli core [command] --help&quot; for more information about a command.</span>
 </code></pre></div>
@@ -1716,7 +1759,7 @@ Installed<span class="w"> </span>FTDebouncer@1.3.0
 </code></pre></div>
 <h2 id="using-the-daemon-mode-and-the-grpc-interface">Using the <code>daemon</code> mode and the gRPC interface<a class="headerlink" href="#using-the-daemon-mode-and-the-grpc-interface" title="Permanent link">&para;</a></h2>
 <p>Arduino CLI can be launched as a gRPC server via the <code>daemon</code> command.</p>
-<p>The <a href="https://github.com/arduino/arduino-cli/blob/master/client_example">client_example</a> folder contains a sample client code that shows how to interact with the gRPC server. Available
+<p>The <a href="https://github.com/arduino/arduino-cli/blob/master/rpc/internal/client_example">client_example</a> folder contains a sample client code that shows how to interact with the gRPC server. Available
 services and messages are detailed in the <a href="../rpc/commands/">gRPC reference</a> pages.</p>
 <p>To provide observability for the gRPC server activities besides logs, the <code>daemon</code> mode activates and exposes by default
 a <a href="https://prometheus.io/">Prometheus</a> endpoint (<a href="http://localhost:9090/metrics">http://localhost:9090/metrics</a>) that can be fetched for metrics data

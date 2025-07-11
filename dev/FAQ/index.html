@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://arduino.github.io/arduino-cli/dev/FAQ/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.3.6">
     
     
       
@@ -368,6 +368,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#permission-denied-error-in-sketch-upload" class="md-nav__link">
+    "Permission denied" error in sketch upload
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-assistance" class="md-nav__link">
     Additional assistance
   </a>
@@ -654,6 +661,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../commands/arduino-cli_config_get/" class="md-nav__link">
+        config get
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../commands/arduino-cli_config_remove/" class="md-nav__link">
         config remove
       </a>
@@ -810,6 +831,20 @@
     <li class="md-nav__item">
       <a href="../commands/arduino-cli_debug/" class="md-nav__link">
         debug
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/arduino-cli_debug_check/" class="md-nav__link">
+        debug check
       </a>
     </li>
   
@@ -1334,6 +1369,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        Backward compatibility policy
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1395,6 +1445,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#permission-denied-error-in-sketch-upload" class="md-nav__link">
+    "Permission denied" error in sketch upload
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-assistance" class="md-nav__link">
     Additional assistance
   </a>
@@ -1429,21 +1486,31 @@
   USB2Serial chip, but we don’t know which board that chip is on.</li>
 </ul>
 <h2 id="whats-the-fqbn-string">What's the FQBN string?<a class="headerlink" href="#whats-the-fqbn-string" title="Permanent link">&para;</a></h2>
-<p>For a deeper understanding of how FQBN works, you should understand the <a href="../platform-specification/">Arduino platform specification</a>.</p>
+<p>FQBN stands for Fully Qualified Board Name. It has the following format:
+<code>VENDOR:ARCHITECTURE:BOARD_ID[:MENU_ID=OPTION_ID[,MENU2_ID=OPTION_ID ...]]</code>, with each <code>MENU_ID=OPTION_ID</code> being an
+optional key-value pair configuration. The <code>VENDOR</code> and <code>ARCHITECTURE</code> parts can be empty. For a deeper understanding of
+how FQBN works, you should understand the <a href="../platform-specification/">Arduino platform specification</a>.</p>
 <h2 id="how-to-set-multiple-board-options">How to set multiple board options?<a class="headerlink" href="#how-to-set-multiple-board-options" title="Permanent link">&para;</a></h2>
 <p>Additional board options have to be separated by commas (instead of colon):</p>
 <p><code>$ arduino-cli compile --fqbn "esp8266:esp8266:generic:xtal=160,baud=57600" TestSketch</code></p>
 <h2 id="where-is-the-serial-monitor">Where is the Serial Monitor?<a class="headerlink" href="#where-is-the-serial-monitor" title="Permanent link">&para;</a></h2>
 <p>The serial monitor is available through the <a href="../commands/arduino-cli_monitor/">monitor command</a>. By the way, the functionality provided
 by this command is very limited and you may want to look for other tools if you need more advanced functionality.</p>
-<p>There are many excellent serial terminals to chose from. On Linux or macOS, you may already have <a href="https://www.gnu.org/software/screen/manual/screen.html">screen</a>
-installed. On Windows, a good choice for command line usage is Plink, included with <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>.</p>
+<p>There are many excellent serial terminals to chose from. On Linux or macOS, you may already have <code>screen</code> installed. On
+Windows, a good choice for command line usage is Plink, included with <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>.</p>
 <h2 id="how-to-change-monitor-configuration">How to change monitor configuration?<a class="headerlink" href="#how-to-change-monitor-configuration" title="Permanent link">&para;</a></h2>
 <p><a href="../pluggable-monitor-specification/#describe-command">Configuration parameters</a> of the monitor can be obtained by executing the following command:</p>
 <p><code>$ arduino-cli monitor -p &lt;port&gt; --describe</code></p>
 <p>These parameters can be modified by passing a list of <code>&lt;key&gt;=&lt;desiredValue&gt;</code> pairs to the <code>--config</code> flag. For example,
 when using a serial port, the monitor baud rate can be set to 4800 with the following command:</p>
 <p><code>$ arduino-cli monitor -p &lt;port&gt; --config baudrate=4800</code></p>
+<h2 id="permission-denied-error-in-sketch-upload">"Permission denied" error in sketch upload<a class="headerlink" href="#permission-denied-error-in-sketch-upload" title="Permanent link">&para;</a></h2>
+<p>This problem might happen on some Linux systems, and can be solved by setting up serial port permissions. First, search
+for the port your board is connected to, with the command:</p>
+<p><code>$ arduino-cli board list</code></p>
+<p>Then add your user to the group with the following command, replacing <code>&lt;username&gt;</code> with your username and <code>&lt;group&gt;</code> with
+your group name. Logging out and in again is necessary for the changes to take effect.</p>
+<p><code>$ sudo usermod -a -G &lt;group&gt; &lt;username&gt;</code></p>
 <h2 id="additional-assistance">Additional assistance<a class="headerlink" href="#additional-assistance" title="Permanent link">&para;</a></h2>
 <p>If your question wasn't answered, feel free to ask on <a href="https://forum.arduino.cc/c/software/arduino-cli/89">Arduino CLI's forum board</a>.</p>
                 

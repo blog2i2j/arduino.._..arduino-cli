@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://arduino.github.io/arduino-cli/dev/UPGRADING/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.3.6">
     
     
       
@@ -277,16 +277,189 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0360" class="md-nav__link">
-    0.36.0
+  <a href="#104" class="md-nav__link">
+    1.0.4
   </a>
   
-    <nav class="md-nav" aria-label="0.36.0">
+    <nav class="md-nav" aria-label="1.0.4">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-build-cache-path-specified-with-compile-build-cache-path-or-build_cachepath-now-affects-also-sketches" class="md-nav__link">
+    The build cache path specified with compile --build-cache-path or build_cache.path now affects also sketches.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-full-build-of-the-sketch-is-performed-if-a-build-path-is-specified-in-compile-build-path" class="md-nav__link">
+    A full build of the sketch is performed if a build path is specified in compile --build-path ....
+  </a>
+  
+    <nav class="md-nav" aria-label="A full build of the sketch is performed if a build path is specified in compile --build-path ....">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile-build-cache-path-is-deprecated" class="md-nav__link">
+    compile --build-cache-path is deprecated.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-default-build_cachepath-has-been-moved-from-the-temp-folder-to-the-users-cache-folder" class="md-nav__link">
+    The default build_cache.path has been moved from the temp folder to the user's cache folder.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100" class="md-nav__link">
+    1.0.0
+  </a>
+  
+    <nav class="md-nav" aria-label="1.0.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile-build-cache-path-slightly-changed-directory-format" class="md-nav__link">
+    compile --build-cache-path slightly changed directory format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file-now-supports-only-yaml-format" class="md-nav__link">
+    Configuration file now supports only YAML format.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grpc-setting-api-important-changes" class="md-nav__link">
+    gRPC Setting API important changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golang-importing-arduino-cli-as-a-library-now-requires-the-creation-of-a-grpc-service" class="md-nav__link">
+    golang: importing arduino-cli as a library now requires the creation of a gRPC service.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml-output-format-is-no-more-supported" class="md-nav__link">
+    YAML output format is no more supported
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grpc-the-type-field-has-been-renamed-to-types-in-the-ccarduinoclicommandsv1platformrelease-message" class="md-nav__link">
+    gRPC: The type field has been renamed to types in the cc.arduino.cli.commands.v1.PlatformRelease message.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-type-field-has-been-renamed-to-types-in-the-json-output-including-a-platform-release" class="md-nav__link">
+    The type field has been renamed to types in the JSON output including a platform release.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1compilerequestexport_binaries-changed-type" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.CompileRequest.export_binaries changed type.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-grpc-responses-messages-now-uses-the-oneof-clause" class="md-nav__link">
+    Some gRPC responses messages now uses the oneof clause.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1updateindexresponse-and-updatelibrariesindexresponse-have-changed" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.UpdateIndexResponse and UpdateLibrariesIndexResponse have changed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1profile-message-has-been-removed-in-favor-of-sketchprofile" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.Profile message has been removed in favor of SketchProfile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1loadsketchresponse-message-has-been-changed" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.LoadSketchResponse message has been changed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop-support-for-builtintools" class="md-nav__link">
+    Drop support for builtin.tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1monitorrequest-message-has-been-changed" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.MonitorRequest message has been changed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-golang-modules-from-githubcomarduinoarduino-cli-have-been-made-private" class="md-nav__link">
+    Some golang modules from github.com/arduino/arduino-cli/* have been made private.
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#cli-changed-json-output-for-some-lib-core-config-board-and-sketch-commands" class="md-nav__link">
     CLI changed JSON output for some lib, core, config, board, and sketch commands.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-dump-no-longer-returns-default-configuration-values" class="md-nav__link">
+    config dump no longer returns default configuration values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-response-ccarduinoclicommandsv1compileresponse-has-been-changed" class="md-nav__link">
+    The gRPC response cc.arduino.cli.commands.v1.CompileResponse has been changed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-response-ccarduinoclicommandsv1uploadusingprogrammerresponse-and-ccarduinoclicommandsv1burnbootloaderresponse-has-been-changed" class="md-nav__link">
+    The gRPC response cc.arduino.cli.commands.v1.UploadUsingProgrammerResponse and cc.arduino.cli.commands.v1.BurnBootloaderResponse has been changed.
   </a>
   
 </li>
@@ -1745,6 +1918,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../commands/arduino-cli_config_get/" class="md-nav__link">
+        config get
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../commands/arduino-cli_config_remove/" class="md-nav__link">
         config remove
       </a>
@@ -1901,6 +2088,20 @@
     <li class="md-nav__item">
       <a href="../commands/arduino-cli_debug/" class="md-nav__link">
         debug
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/arduino-cli_debug_check/" class="md-nav__link">
+        debug check
       </a>
     </li>
   
@@ -2425,6 +2626,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        Backward compatibility policy
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2453,16 +2669,189 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0360" class="md-nav__link">
-    0.36.0
+  <a href="#104" class="md-nav__link">
+    1.0.4
   </a>
   
-    <nav class="md-nav" aria-label="0.36.0">
+    <nav class="md-nav" aria-label="1.0.4">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-build-cache-path-specified-with-compile-build-cache-path-or-build_cachepath-now-affects-also-sketches" class="md-nav__link">
+    The build cache path specified with compile --build-cache-path or build_cache.path now affects also sketches.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-full-build-of-the-sketch-is-performed-if-a-build-path-is-specified-in-compile-build-path" class="md-nav__link">
+    A full build of the sketch is performed if a build path is specified in compile --build-path ....
+  </a>
+  
+    <nav class="md-nav" aria-label="A full build of the sketch is performed if a build path is specified in compile --build-path ....">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile-build-cache-path-is-deprecated" class="md-nav__link">
+    compile --build-cache-path is deprecated.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-default-build_cachepath-has-been-moved-from-the-temp-folder-to-the-users-cache-folder" class="md-nav__link">
+    The default build_cache.path has been moved from the temp folder to the user's cache folder.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100" class="md-nav__link">
+    1.0.0
+  </a>
+  
+    <nav class="md-nav" aria-label="1.0.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile-build-cache-path-slightly-changed-directory-format" class="md-nav__link">
+    compile --build-cache-path slightly changed directory format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file-now-supports-only-yaml-format" class="md-nav__link">
+    Configuration file now supports only YAML format.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grpc-setting-api-important-changes" class="md-nav__link">
+    gRPC Setting API important changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golang-importing-arduino-cli-as-a-library-now-requires-the-creation-of-a-grpc-service" class="md-nav__link">
+    golang: importing arduino-cli as a library now requires the creation of a gRPC service.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml-output-format-is-no-more-supported" class="md-nav__link">
+    YAML output format is no more supported
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grpc-the-type-field-has-been-renamed-to-types-in-the-ccarduinoclicommandsv1platformrelease-message" class="md-nav__link">
+    gRPC: The type field has been renamed to types in the cc.arduino.cli.commands.v1.PlatformRelease message.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-type-field-has-been-renamed-to-types-in-the-json-output-including-a-platform-release" class="md-nav__link">
+    The type field has been renamed to types in the JSON output including a platform release.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1compilerequestexport_binaries-changed-type" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.CompileRequest.export_binaries changed type.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-grpc-responses-messages-now-uses-the-oneof-clause" class="md-nav__link">
+    Some gRPC responses messages now uses the oneof clause.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1updateindexresponse-and-updatelibrariesindexresponse-have-changed" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.UpdateIndexResponse and UpdateLibrariesIndexResponse have changed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1profile-message-has-been-removed-in-favor-of-sketchprofile" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.Profile message has been removed in favor of SketchProfile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1loadsketchresponse-message-has-been-changed" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.LoadSketchResponse message has been changed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop-support-for-builtintools" class="md-nav__link">
+    Drop support for builtin.tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-ccarduinoclicommandsv1monitorrequest-message-has-been-changed" class="md-nav__link">
+    The gRPC cc.arduino.cli.commands.v1.MonitorRequest message has been changed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-golang-modules-from-githubcomarduinoarduino-cli-have-been-made-private" class="md-nav__link">
+    Some golang modules from github.com/arduino/arduino-cli/* have been made private.
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#cli-changed-json-output-for-some-lib-core-config-board-and-sketch-commands" class="md-nav__link">
     CLI changed JSON output for some lib, core, config, board, and sketch commands.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-dump-no-longer-returns-default-configuration-values" class="md-nav__link">
+    config dump no longer returns default configuration values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-response-ccarduinoclicommandsv1compileresponse-has-been-changed" class="md-nav__link">
+    The gRPC response cc.arduino.cli.commands.v1.CompileResponse has been changed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-grpc-response-ccarduinoclicommandsv1uploadusingprogrammerresponse-and-ccarduinoclicommandsv1burnbootloaderresponse-has-been-changed" class="md-nav__link">
+    The gRPC response cc.arduino.cli.commands.v1.UploadUsingProgrammerResponse and cc.arduino.cli.commands.v1.BurnBootloaderResponse has been changed.
   </a>
   
 </li>
@@ -3599,8 +3988,424 @@
                 
                 
                 <h1 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">&para;</a></h1>
-<p>Here you can find a list of migration guides to handle breaking changes between releases of the CLI.</p>
-<h2 id="0360">0.36.0<a class="headerlink" href="#0360" title="Permanent link">&para;</a></h2>
+<p>Here you can find a list of migration guides to handle breaking changes, deprecations, and bugfixes that may cause
+problems between releases of the CLI.</p>
+<h2 id="104">1.0.4<a class="headerlink" href="#104" title="Permanent link">&para;</a></h2>
+<h3 id="the-build-cache-path-specified-with-compile-build-cache-path-or-build_cachepath-now-affects-also-sketches">The build cache path specified with <code>compile --build-cache-path</code> or <code>build_cache.path</code> now affects also sketches.<a class="headerlink" href="#the-build-cache-path-specified-with-compile-build-cache-path-or-build_cachepath-now-affects-also-sketches" title="Permanent link">&para;</a></h3>
+<p>Previously the specified build cache path only affected cores and it was ignored for sketches. This is now fixed and
+both cores and sketches are cached in the given directory.</p>
+<h3 id="a-full-build-of-the-sketch-is-performed-if-a-build-path-is-specified-in-compile-build-path">A full build of the sketch is performed if a build path is specified in <code>compile --build-path ...</code>.<a class="headerlink" href="#a-full-build-of-the-sketch-is-performed-if-a-build-path-is-specified-in-compile-build-path" title="Permanent link">&para;</a></h3>
+<p>Previously if a build path was specified a cached core could have been used from the global build cache path resulting
+in a partial build inside the given build path.</p>
+<p>Now if a build path is specified, the global build cache path is ignored and the full build is done in the given build
+path.</p>
+<h4 id="compile-build-cache-path-is-deprecated"><code>compile --build-cache-path</code> is deprecated.<a class="headerlink" href="#compile-build-cache-path-is-deprecated" title="Permanent link">&para;</a></h4>
+<p>The change above, makes the <code>compile --build-cache-path</code> flag useless. It is kept just for backward compatibility.</p>
+<h3 id="the-default-build_cachepath-has-been-moved-from-the-temp-folder-to-the-users-cache-folder">The default <code>build_cache.path</code> has been moved from the temp folder to the user's cache folder.<a class="headerlink" href="#the-default-build_cachepath-has-been-moved-from-the-temp-folder-to-the-users-cache-folder" title="Permanent link">&para;</a></h3>
+<p>Previously the <code>build_cache.path</code> was in <code>$TMP/arduino</code>. Now it has been moved to the specific OS user's cache folder,
+for example in Linux it happens to be <code>$HOME/.cache/arduino</code>.</p>
+<h2 id="100">1.0.0<a class="headerlink" href="#100" title="Permanent link">&para;</a></h2>
+<h3 id="compile-build-cache-path-slightly-changed-directory-format"><code>compile --build-cache-path</code> slightly changed directory format<a class="headerlink" href="#compile-build-cache-path-slightly-changed-directory-format" title="Permanent link">&para;</a></h3>
+<p>Now compiled cores are cached under the <code>cores</code> subdir of the path specified in <code>--build-cache-path</code>, previously it was
+saved under the <code>core</code> subdir. The new behaviour is coherent with the default cache directory <code>/tmp/arduino/cores/...</code>
+when the cache directory is not set by the user.</p>
+<h3 id="configuration-file-now-supports-only-yaml-format">Configuration file now supports only YAML format.<a class="headerlink" href="#configuration-file-now-supports-only-yaml-format" title="Permanent link">&para;</a></h3>
+<p>The Arduino CLI configuration file now supports only the YAML format.</p>
+<h3 id="grpc-setting-api-important-changes">gRPC Setting API important changes<a class="headerlink" href="#grpc-setting-api-important-changes" title="Permanent link">&para;</a></h3>
+<p>The Settings API has been heavily refactored. Here a quick recap of the new methods:</p>
+<ul>
+<li>
+<p><code>SettingsGetValue</code> returns the value of a setting given the key. The returned value is a string encoded in JSON, or
+  YAML</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">SettingsGetValueRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// The key to get</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// The format of the encoded_value (default is</span>
+<span class="w">  </span><span class="c1">// &quot;json&quot;, allowed values are &quot;json&quot; and &quot;yaml)</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">value_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">SettingsGetValueResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// The value of the key (encoded)</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">encoded_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>SettingsSetValue</code> change the value of a setting. The value may be specified in JSON, YAML, or as a command-line
+  argument. If <code>encoded_value</code> is an empty string the setting is deleted.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">SettingsSetValueRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// The key to change</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// The new value (encoded), no objects,</span>
+<span class="w">  </span><span class="c1">// only scalar, or array of scalars are</span>
+<span class="w">  </span><span class="c1">// allowed.</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">encoded_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// The format of the encoded_value (default is</span>
+<span class="w">  </span><span class="c1">// &quot;json&quot;, allowed values are &quot;json&quot;, &quot;yaml&quot;,</span>
+<span class="w">  </span><span class="c1">// and &quot;cli&quot;)</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">value_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li><code>SettingsEnumerate</code> returns all the available keys and their type (<code>string</code>, <code>int</code>, <code>[]string</code>...)</li>
+<li><code>ConfigurationOpen</code> replaces the current configuration with the one passed as argument. Differently from
+  <code>SettingsSetValue</code>, this call replaces the whole configuration.</li>
+<li><code>ConfigurationSave</code> outputs the current configuration in the specified format. The configuration is not saved in a
+  file, this call returns just the content, it's a duty of the caller to store the content in a file.</li>
+<li><code>ConfigurationGet</code> return the current configuration in a structured gRPC message <code>Configuration</code>.</li>
+</ul>
+<p>The previous gRPC Setting rpc call may be replaced as follows:</p>
+<ul>
+<li>The old <code>SettingsMerge</code> rpc call can now be done trough <code>SettingsSetValue</code>.</li>
+<li>The old <code>SettingsDelete</code> rpc call can now be done trough <code>SettingsSetValue</code> passing the <code>key</code> to delete with an empty
+  <code>value</code>.</li>
+<li>The old <code>SettingsGetAll</code> rpc call has been replaced by <code>ConfigurationGet</code> that returns a structured message
+  <code>Configuration</code> with all the settings populated.</li>
+<li>The old <code>SettingsWrite</code> rpc call has been removed. It is partially replaced by <code>ConfigurationSave</code> but the actual file
+  save must be performed by the caller.</li>
+</ul>
+<h3 id="golang-importing-arduino-cli-as-a-library-now-requires-the-creation-of-a-grpc-service">golang: importing <code>arduino-cli</code> as a library now requires the creation of a gRPC service.<a class="headerlink" href="#golang-importing-arduino-cli-as-a-library-now-requires-the-creation-of-a-grpc-service" title="Permanent link">&para;</a></h3>
+<p>Previously the methods implementing the Arduino business logic were available in the global namespace
+<code>github.com/arduino/arduino-cli/commands/*</code> and could be called directly.</p>
+<p>The above is no more true. All the global <code>commands.*</code> functions have been converted to methods of the
+<code>arduinoCoreServerImpl</code> struct that implements the gRPC <code>ArduinoCoreServer</code> interface. The configuration is now part of
+the server internal state. Developers may create a "daemon-less" server by calling the <code>commands.NewArduinoCoreServer()</code>
+function and can use the returned object to call all the needed gRPC functions.</p>
+<p>The methods of the <code>ArduinoCoreServer</code> are generated through the gRPC protobuf definitions, some of those methods are
+gRPC "streaming" methods and requires a streaming object to be passed as argument, we provided helper methods to create
+these objects.</p>
+<p>For example if previously we could call <code>commands.Init</code> like this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// old Init signature</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">Init</span><span class="p">(</span><span class="nx">req</span><span class="w"> </span><span class="o">*</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">InitRequest</span><span class="p">,</span><span class="w"> </span><span class="nx">responseCallback</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">InitResponse</span><span class="p">))</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// ...</span>
+
+<span class="c1">// Initialize instance</span>
+<span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">commands</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">InitRequest</span><span class="p">{</span><span class="nx">Instance</span><span class="p">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">GetInstance</span><span class="p">()},</span><span class="w"> </span><span class="nx">respCB</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>now the <code>responseCallback</code> must be wrapped into an <code>rpc.ArduinoCoreService_InitServer</code>, and we provided a method exactly
+for that:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// new Init method</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">arduinoCoreServerImpl</span><span class="p">)</span><span class="w"> </span><span class="nx">Init</span><span class="p">(</span><span class="nx">req</span><span class="w"> </span><span class="o">*</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">InitRequest</span><span class="p">,</span><span class="w"> </span><span class="nx">stream</span><span class="w"> </span><span class="nx">rpc</span><span class="p">.</span><span class="nx">ArduinoCoreService_InitServer</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">/// ...</span>
+
+<span class="c1">// Initialize instance</span>
+<span class="nx">initStream</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">InitStreamResponseToCallbackFunction</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">respCB</span><span class="p">)</span>
+<span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">srv</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">InitRequest</span><span class="p">{</span><span class="nx">Instance</span><span class="p">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">GetInstance</span><span class="p">()},</span><span class="w"> </span><span class="nx">initStream</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Each gRPC method has an helper method to obtain the corresponding <code>ArduinoCoreService_*Server</code> parameter. Here a simple,
+but complete, example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;context&quot;</span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+<span class="w">    </span><span class="s">&quot;io&quot;</span>
+<span class="w">    </span><span class="s">&quot;log&quot;</span>
+
+<span class="w">    </span><span class="s">&quot;github.com/arduino/arduino-cli/commands&quot;</span>
+<span class="w">    </span><span class="nx">rpc</span><span class="w"> </span><span class="s">&quot;github.com/arduino/arduino-cli/rpc/cc/arduino/cli/commands/v1&quot;</span>
+<span class="w">    </span><span class="s">&quot;github.com/sirupsen/logrus&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Create a new ArduinoCoreServer</span>
+<span class="w">    </span><span class="nx">srv</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">commands</span><span class="p">.</span><span class="nx">NewArduinoCoreServer</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// Disable logging</span>
+<span class="w">    </span><span class="nx">logrus</span><span class="p">.</span><span class="nx">SetOutput</span><span class="p">(</span><span class="nx">io</span><span class="p">.</span><span class="nx">Discard</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Create a new instance in the server</span>
+<span class="w">    </span><span class="nx">ctx</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">srv</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">CreateRequest</span><span class="p">{})</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="s">&quot;Error creating instance:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">instance</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">resp</span><span class="p">.</span><span class="nx">GetInstance</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// Defer the destruction of the instance</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">srv</span><span class="p">.</span><span class="nx">Destroy</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">DestroyRequest</span><span class="p">{</span><span class="nx">Instance</span><span class="p">:</span><span class="w"> </span><span class="nx">instance</span><span class="p">});</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="s">&quot;Error destroying instance:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Instance successfully destroyed&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}()</span>
+
+<span class="w">    </span><span class="c1">// Initialize the instance</span>
+<span class="w">    </span><span class="nx">initStream</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">commands</span><span class="p">.</span><span class="nx">InitStreamResponseToCallbackFunction</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">InitResponse</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;INIT&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">srv</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">InitRequest</span><span class="p">{</span><span class="nx">Instance</span><span class="p">:</span><span class="w"> </span><span class="nx">instance</span><span class="p">},</span><span class="w"> </span><span class="nx">initStream</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="s">&quot;Error during initialization:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Search for platforms and output the result</span>
+<span class="w">    </span><span class="nx">searchResp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">srv</span><span class="p">.</span><span class="nx">PlatformSearch</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">PlatformSearchRequest</span><span class="p">{</span><span class="nx">Instance</span><span class="p">:</span><span class="w"> </span><span class="nx">instance</span><span class="p">})</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="s">&quot;Error searching for platforms:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">platformSummary</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">searchResp</span><span class="p">.</span><span class="nx">GetSearchOutput</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">installed</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">platformSummary</span><span class="p">.</span><span class="nx">GetInstalledRelease</span><span class="p">()</span>
+<span class="w">        </span><span class="nx">meta</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">platformSummary</span><span class="p">.</span><span class="nx">GetMetadata</span><span class="p">()</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%30s %8s %s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">meta</span><span class="p">.</span><span class="nx">GetId</span><span class="p">(),</span><span class="w"> </span><span class="nx">installed</span><span class="p">.</span><span class="nx">GetVersion</span><span class="p">(),</span><span class="w"> </span><span class="nx">installed</span><span class="p">.</span><span class="nx">GetName</span><span class="p">())</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="yaml-output-format-is-no-more-supported">YAML output format is no more supported<a class="headerlink" href="#yaml-output-format-is-no-more-supported" title="Permanent link">&para;</a></h3>
+<p>The <code>yaml</code> option of the <code>--format</code> flag is no more supported. Use <code>--format json</code> if machine parsable output is needed.</p>
+<h3 id="grpc-the-type-field-has-been-renamed-to-types-in-the-ccarduinoclicommandsv1platformrelease-message">gRPC: The <code>type</code> field has been renamed to <code>types</code> in the <code>cc.arduino.cli.commands.v1.PlatformRelease</code> message.<a class="headerlink" href="#grpc-the-type-field-has-been-renamed-to-types-in-the-ccarduinoclicommandsv1platformrelease-message" title="Permanent link">&para;</a></h3>
+<p>Rebuilding the gRPC bindings from the proto files requires to rename all access to <code>type</code> field as <code>types</code>.</p>
+<p>By the way, the wire protocol is not affected by this change, existing clients should work fine without modification.</p>
+<h3 id="the-type-field-has-been-renamed-to-types-in-the-json-output-including-a-platform-release">The <code>type</code> field has been renamed to <code>types</code> in the JSON output including a platform release.<a class="headerlink" href="#the-type-field-has-been-renamed-to-types-in-the-json-output-including-a-platform-release" title="Permanent link">&para;</a></h3>
+<p>Since the <code>type</code> field may contain multiple values has been renamed to <code>types</code> to better express this aspect.</p>
+<p>Previously:</p>
+<div class="highlight"><pre><span></span><code>$ arduino-cli core list --json | jq &#39;.platforms[4].releases.&quot;1.8.13&quot;&#39;
+{
+  &quot;name&quot;: &quot;Arduino SAMD (32-bits ARM Cortex-M0+) Boards&quot;,
+  &quot;version&quot;: &quot;1.8.13&quot;,
+  &quot;type&quot;: [
+    &quot;Arduino&quot;
+  ],
+  ...
+</code></pre></div>
+<p>Now:</p>
+<div class="highlight"><pre><span></span><code>$ arduino-cli core list --json | jq &#39;.platforms[4].releases.&quot;1.8.13&quot;&#39;
+{
+  &quot;name&quot;: &quot;Arduino SAMD (32-bits ARM Cortex-M0+) Boards&quot;,
+  &quot;version&quot;: &quot;1.8.13&quot;,
+  &quot;types&quot;: [
+    &quot;Arduino&quot;
+  ],
+  ...
+</code></pre></div>
+<h3 id="the-grpc-ccarduinoclicommandsv1compilerequestexport_binaries-changed-type">The gRPC <code>cc.arduino.cli.commands.v1.CompileRequest.export_binaries</code> changed type.<a class="headerlink" href="#the-grpc-ccarduinoclicommandsv1compilerequestexport_binaries-changed-type" title="Permanent link">&para;</a></h3>
+<p>Previously the field <code>export_binaries</code> was a <code>google.protobuf.BoolValue</code>. We used this type because it expresses this
+field's optional nature (that is, it could be <code>true</code>, <code>false</code>, and <code>null</code> if not set).</p>
+<p>Now the field is an <code>optional bool</code>, since the latest protobuf protocol changes now allows optional fields.</p>
+<h3 id="some-grpc-responses-messages-now-uses-the-oneof-clause">Some gRPC responses messages now uses the <code>oneof</code> clause.<a class="headerlink" href="#some-grpc-responses-messages-now-uses-the-oneof-clause" title="Permanent link">&para;</a></h3>
+<p>The following responses message:</p>
+<ul>
+<li><code>cc.arduino.cli.commands.v1.PlatformInstallResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.PlatformDownloadResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.PlatformUninstallResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.PlatformUpgradeResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.DebugResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.LibraryDownloadResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.LibraryInstallResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.LibraryUpgradeResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.LibraryUninstallResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.LibraryUpgradeAllResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.ZipLibraryInstallResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.GitLibraryInstallResponse</code></li>
+<li><code>cc.arduino.cli.commands.v1.MonitorResponse</code></li>
+</ul>
+<p>now use the <code>oneof</code> clause to make the stream nature of the message more explicit. Just to give an example, the
+<code>PlatformInstallResponse</code> message has been changed from:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">PlatformInstallResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Progress of the downloads of the platform and tool files.</span>
+<span class="w">  </span><span class="n">DownloadProgress</span><span class="w"> </span><span class="na">progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Description of the current stage of the installation.</span>
+<span class="w">  </span><span class="n">TaskProgress</span><span class="w"> </span><span class="na">task_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>to:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">PlatformInstallResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">message</span><span class="w"> </span><span class="nc">Result</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Empty message, reserved for future expansion.</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">oneof</span><span class="w"> </span><span class="kd">message</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Progress of the downloads of the platform and tool files.</span>
+<span class="w">    </span><span class="n">DownloadProgress</span><span class="w"> </span><span class="na">progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Description of the current stage of the installation.</span>
+<span class="w">    </span><span class="n">TaskProgress</span><span class="w"> </span><span class="na">task_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// The installation result.</span>
+<span class="w">    </span><span class="n">Result</span><span class="w"> </span><span class="na">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The other messages have been changed in a similar way.</p>
+<h3 id="the-grpc-ccarduinoclicommandsv1updateindexresponse-and-updatelibrariesindexresponse-have-changed">The gRPC <code>cc.arduino.cli.commands.v1.UpdateIndexResponse</code> and <code>UpdateLibrariesIndexResponse</code> have changed.<a class="headerlink" href="#the-grpc-ccarduinoclicommandsv1updateindexresponse-and-updatelibrariesindexresponse-have-changed" title="Permanent link">&para;</a></h3>
+<p>The responses coming from the update index commands:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">UpdateIndexResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Progress of the package index download.</span>
+<span class="w">  </span><span class="n">DownloadProgress</span><span class="w"> </span><span class="na">download_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">UpdateLibrariesIndexResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Progress of the libraries index download.</span>
+<span class="w">  </span><span class="n">DownloadProgress</span><span class="w"> </span><span class="na">download_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>are now more explicit and contains details about the result of the operation:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">UpdateIndexResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">message</span><span class="w"> </span><span class="nc">Result</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// The result of the packages index update.</span>
+<span class="w">    </span><span class="k">repeated</span><span class="w"> </span><span class="n">IndexUpdateReport</span><span class="w"> </span><span class="na">updated_indexes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">oneof</span><span class="w"> </span><span class="kd">message</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Progress of the package index download.</span>
+<span class="w">    </span><span class="n">DownloadProgress</span><span class="w"> </span><span class="na">download_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// The result of the index update.</span>
+<span class="w">    </span><span class="n">Result</span><span class="w"> </span><span class="na">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">UpdateLibrariesIndexResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">message</span><span class="w"> </span><span class="nc">Result</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// The result of the libraries index update.</span>
+<span class="w">    </span><span class="n">IndexUpdateReport</span><span class="w"> </span><span class="na">libraries_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">oneof</span><span class="w"> </span><span class="kd">message</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Progress of the libraries index download.</span>
+<span class="w">    </span><span class="n">DownloadProgress</span><span class="w"> </span><span class="na">download_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// The result of the index update.</span>
+<span class="w">    </span><span class="n">Result</span><span class="w"> </span><span class="na">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>IndexUpdateReport</code> message contains details for each index update operation performed:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">IndexUpdateReport</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">enum</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// The status of the index update is unspecified.</span>
+<span class="w">    </span><span class="na">STATUS_UNSPECIFIED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// The index has been successfully updated.</span>
+<span class="w">    </span><span class="na">STATUS_UPDATED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// The index was already up to date.</span>
+<span class="w">    </span><span class="na">STATUS_ALREADY_UP_TO_DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// The index update failed.</span>
+<span class="w">    </span><span class="na">STATUS_FAILED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// The index update was skipped.</span>
+<span class="w">    </span><span class="na">STATUS_SKIPPED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// The URL of the index that was updated.</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">index_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// The result of the index update.</span>
+<span class="w">  </span><span class="n">Status</span><span class="w"> </span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="the-grpc-ccarduinoclicommandsv1profile-message-has-been-removed-in-favor-of-sketchprofile">The gRPC <code>cc.arduino.cli.commands.v1.Profile</code> message has been removed in favor of <code>SketchProfile</code><a class="headerlink" href="#the-grpc-ccarduinoclicommandsv1profile-message-has-been-removed-in-favor-of-sketchprofile" title="Permanent link">&para;</a></h3>
+<p>The message <code>Profile</code> has been replaced with <code>SketchProfile</code> in the <code>InitResponse.profile</code> field:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">InitResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">oneof</span><span class="w"> </span><span class="kd">message</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Progress</span><span class="w"> </span><span class="na">init_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">google.rpc.Status</span><span class="w"> </span><span class="na">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Selected profile information</span>
+<span class="w">    </span><span class="n">SketchProfile</span><span class="w"> </span><span class="na">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="the-grpc-ccarduinoclicommandsv1loadsketchresponse-message-has-been-changed">The gRPC <code>cc.arduino.cli.commands.v1.LoadSketchResponse</code> message has been changed.<a class="headerlink" href="#the-grpc-ccarduinoclicommandsv1loadsketchresponse-message-has-been-changed" title="Permanent link">&para;</a></h3>
+<p>Previously the <code>LoadSketchResponse</code> containted all the information about the sketch:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">LoadSketchResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">main_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">location_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">other_sketch_files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">additional_files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">root_folder_files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">default_fqbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">default_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">default_protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="n">SketchProfile</span><span class="w"> </span><span class="na">profiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
+<span class="w">  </span><span class="n">SketchProfile</span><span class="w"> </span><span class="na">default_profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now all the metadata have been moved into a specific <code>Sketch</code> message:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">LoadSketchResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Sketch</span><span class="w"> </span><span class="na">sketch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">Sketch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">main_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">location_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">other_sketch_files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">additional_files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">root_folder_files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">default_fqbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">default_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">default_protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="n">SketchProfile</span><span class="w"> </span><span class="na">profiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
+<span class="w">  </span><span class="n">SketchProfile</span><span class="w"> </span><span class="na">default_profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="drop-support-for-builtintools">Drop support for <code>builtin.tools</code><a class="headerlink" href="#drop-support-for-builtintools" title="Permanent link">&para;</a></h3>
+<p>We're dropping the <code>builtin.tools</code> support. It was the equivalent of Arduino IDE 1.x bundled tools directory.</p>
+<h3 id="the-grpc-ccarduinoclicommandsv1monitorrequest-message-has-been-changed">The gRPC <code>cc.arduino.cli.commands.v1.MonitorRequest</code> message has been changed.<a class="headerlink" href="#the-grpc-ccarduinoclicommandsv1monitorrequest-message-has-been-changed" title="Permanent link">&para;</a></h3>
+<p>Previously the <code>MonitorRequest</code> was a single message used to open the monitor, to stream data, and to change the port
+configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">MonitorRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Arduino Core Service instance from the `Init` response.</span>
+<span class="w">  </span><span class="n">Instance</span><span class="w"> </span><span class="na">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Port to open, must be filled only on the first request</span>
+<span class="w">  </span><span class="n">Port</span><span class="w"> </span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// The board FQBN we are trying to connect to. This is optional, and  it&#39;s</span>
+<span class="w">  </span><span class="c1">// needed to disambiguate if more than one platform provides the pluggable</span>
+<span class="w">  </span><span class="c1">// monitor for a given port protocol.</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">fqbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Data to send to the port</span>
+<span class="w">  </span><span class="kt">bytes</span><span class="w"> </span><span class="na">tx_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Port configuration, optional, contains settings of the port to be applied</span>
+<span class="w">  </span><span class="n">MonitorPortConfiguration</span><span class="w"> </span><span class="na">port_configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now the meaning of the fields has been clarified with the <code>oneof</code> clause, making it more explicit:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">MonitorRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">oneof</span><span class="w"> </span><span class="kd">message</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Open request, it must be the first incoming message</span>
+<span class="w">    </span><span class="n">MonitorPortOpenRequest</span><span class="w"> </span><span class="na">open_request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Data to send to the port</span>
+<span class="w">    </span><span class="kt">bytes</span><span class="w"> </span><span class="na">tx_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Port configuration, contains settings of the port to be changed</span>
+<span class="w">    </span><span class="n">MonitorPortConfiguration</span><span class="w"> </span><span class="na">updated_configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Close message, set to true to gracefully close a port (this ensure</span>
+<span class="w">    </span><span class="c1">// that the gRPC streaming call is closed by the daemon AFTER the port</span>
+<span class="w">    </span><span class="c1">// has been successfully closed)</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="na">close</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">MonitorPortOpenRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Arduino Core Service instance from the `Init` response.</span>
+<span class="w">  </span><span class="n">Instance</span><span class="w"> </span><span class="na">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Port to open, must be filled only on the first request</span>
+<span class="w">  </span><span class="n">Port</span><span class="w"> </span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// The board FQBN we are trying to connect to. This is optional, and  it&#39;s</span>
+<span class="w">  </span><span class="c1">// needed to disambiguate if more than one platform provides the pluggable</span>
+<span class="w">  </span><span class="c1">// monitor for a given port protocol.</span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">fqbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Port configuration, optional, contains settings of the port to be applied</span>
+<span class="w">  </span><span class="n">MonitorPortConfiguration</span><span class="w"> </span><span class="na">port_configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now the message field <code>MonitorPortOpenRequest.open_request</code> must be sent in the first message after opening the
+streaming gRPC call.</p>
+<p>The identification number of the fields has been changed, this change is not binary compatible with old clients.</p>
+<h3 id="some-golang-modules-from-githubcomarduinoarduino-cli-have-been-made-private">Some golang modules from <code>github.com/arduino/arduino-cli/*</code> have been made private.<a class="headerlink" href="#some-golang-modules-from-githubcomarduinoarduino-cli-have-been-made-private" title="Permanent link">&para;</a></h3>
+<p>The following golang modules are no longer available as public API:</p>
+<ul>
+<li><code>github.com/arduino/arduino-cli/arduino</code></li>
+<li><code>github.com/arduino/arduino-cli/buildcache</code></li>
+<li><code>github.com/arduino/arduino-cli/client_example</code></li>
+<li><code>github.com/arduino/arduino-cli/configuration</code></li>
+<li><code>github.com/arduino/arduino-cli/docsgen</code></li>
+<li><code>github.com/arduino/arduino-cli/executils</code></li>
+<li><code>github.com/arduino/arduino-cli/i18n</code></li>
+<li><code>github.com/arduino/arduino-cli/table</code></li>
+</ul>
+<p>Most of the <code>executils</code> library has been integrated inside the <code>go-paths</code> library <code>github.com/arduino/go-paths-helper</code>.
+The other packages are not intended for usage outside the Arduino CLI, we will keep them internal to allow future
+breaking changes as needed.</p>
 <h3 id="cli-changed-json-output-for-some-lib-core-config-board-and-sketch-commands">CLI changed JSON output for some <code>lib</code>, <code>core</code>, <code>config</code>, <code>board</code>, and <code>sketch</code> commands.<a class="headerlink" href="#cli-changed-json-output-for-some-lib-core-config-board-and-sketch-commands" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -3659,6 +4464,105 @@
 </code></pre></div>
 </li>
 </ul>
+<h3 id="config-dump-no-longer-returns-default-configuration-values"><code>config dump</code> no longer returns default configuration values<a class="headerlink" href="#config-dump-no-longer-returns-default-configuration-values" title="Permanent link">&para;</a></h3>
+<p>Previously, the <code>config dump</code> CLI command returned the effective configuration, including both the values explicitly set
+via the configuration file and environment variables as well as the values provided by defaults.</p>
+<p>It now only returns the explicitly set configuration data.</p>
+<p>Use <code>config get &lt;configuration key&gt;</code> to get the effective value of the configuration</p>
+<h3 id="the-grpc-response-ccarduinoclicommandsv1compileresponse-has-been-changed">The gRPC response <code>cc.arduino.cli.commands.v1.CompileResponse</code> has been changed.<a class="headerlink" href="#the-grpc-response-ccarduinoclicommandsv1compileresponse-has-been-changed" title="Permanent link">&para;</a></h3>
+<p>The <code>CompilerResponse</code> message has been refactored to made explicit which fields are intended for streaming the build
+process and which fields are part of the build result.</p>
+<p>The old <code>CompilerResponse</code>:</p>
+<div class="highlight"><pre><span></span><code>message CompileResponse {
+  // The output of the compilation process (stream)
+  bytes out_stream = 1;
+  // The error output of the compilation process (stream)
+  bytes err_stream = 2;
+  // The compiler build path
+  string build_path = 3;
+  // The libraries used in the build
+  repeated Library used_libraries = 4;
+  // The size of the executable split by sections
+  repeated ExecutableSectionSize executable_sections_size = 5;
+  // The platform where the board is defined
+  InstalledPlatformReference board_platform = 6;
+  // The platform used for the build (if referenced from the board platform)
+  InstalledPlatformReference build_platform = 7;
+  // Completions reports of the compilation process (stream)
+  TaskProgress progress = 8;
+  // Build properties used for compiling
+  repeated string build_properties = 9;
+  // Compiler errors and warnings
+  repeated CompileDiagnostic diagnostics = 10;
+}
+</code></pre></div>
+<p>has been split into a <code>CompilerResponse</code> and a <code>BuilderResult</code>:</p>
+<div class="highlight"><pre><span></span><code>message CompileResponse {
+  oneof message {
+    // The output of the compilation process (stream)
+    bytes out_stream = 1;
+    // The error output of the compilation process (stream)
+    bytes err_stream = 2;
+    // Completions reports of the compilation process (stream)
+    TaskProgress progress = 3;
+    // The compilation result
+    BuilderResult result = 4;
+  }
+}
+
+message BuilderResult {
+  // The compiler build path
+  string build_path = 1;
+  // The libraries used in the build
+  repeated Library used_libraries = 2;
+  // The size of the executable split by sections
+  repeated ExecutableSectionSize executable_sections_size = 3;
+  // The platform where the board is defined
+  InstalledPlatformReference board_platform = 4;
+  // The platform used for the build (if referenced from the board platform)
+  InstalledPlatformReference build_platform = 5;
+  // Build properties used for compiling
+  repeated string build_properties = 7;
+  // Compiler errors and warnings
+  repeated CompileDiagnostic diagnostics = 8;
+}
+</code></pre></div>
+<p>with a clear distinction on which fields are streamed.</p>
+<h3 id="the-grpc-response-ccarduinoclicommandsv1uploadusingprogrammerresponse-and-ccarduinoclicommandsv1burnbootloaderresponse-has-been-changed">The gRPC response <code>cc.arduino.cli.commands.v1.UploadUsingProgrammerResponse</code> and <code>cc.arduino.cli.commands.v1.BurnBootloaderResponse</code> has been changed.<a class="headerlink" href="#the-grpc-response-ccarduinoclicommandsv1uploadusingprogrammerresponse-and-ccarduinoclicommandsv1burnbootloaderresponse-has-been-changed" title="Permanent link">&para;</a></h3>
+<p>The old messages:</p>
+<div class="highlight"><pre><span></span><code>message UploadUsingProgrammerResponse {
+  // The output of the upload process.
+  bytes out_stream = 1;
+  // The error output of the upload process.
+  bytes err_stream = 2;
+}
+
+message BurnBootloaderResponse {
+  // The output of the burn bootloader process.
+  bytes out_stream = 1;
+  // The error output of the burn bootloader process.
+  bytes err_stream = 2;
+}
+</code></pre></div>
+<p>now have the <code>oneof</code> clause that makes explicit the streaming nature of the response:</p>
+<div class="highlight"><pre><span></span><code>message UploadUsingProgrammerResponse {
+  oneof message {
+    // The output of the upload process.
+    bytes out_stream = 1;
+    // The error output of the upload process.
+    bytes err_stream = 2;
+  }
+}
+
+message BurnBootloaderResponse {
+  oneof message {
+    // The output of the burn bootloader process.
+    bytes out_stream = 1;
+    // The error output of the burn bootloader process.
+    bytes err_stream = 2;
+  }
+}
+</code></pre></div>
 <h3 id="the-grpc-ccarduinoclicommandsv1platformrelease-has-been-changed">The gRPC <code>cc.arduino.cli.commands.v1.PlatformRelease</code> has been changed.<a class="headerlink" href="#the-grpc-ccarduinoclicommandsv1platformrelease-has-been-changed" title="Permanent link">&para;</a></h3>
 <p>We've added a new field called <code>compatible</code>. This field indicates if the current platform release is installable or not.
 It may happen that a platform doesn't have a dependency available for an OS/ARCH, in such cases, if we try to install
@@ -4638,7 +5542,7 @@ API.</p>
 <a href="https://arduino.github.io/arduino-cli/dev/rpc/commands/#monitorresponse">https://arduino.github.io/arduino-cli/dev/rpc/commands/#monitorresponse</a>
 <a href="https://arduino.github.io/arduino-cli/dev/rpc/commands/#enumeratemonitorportsettingsrequest">https://arduino.github.io/arduino-cli/dev/rpc/commands/#enumeratemonitorportsettingsrequest</a>
 <a href="https://arduino.github.io/arduino-cli/dev/rpc/commands/#enumeratemonitorportsettingsresponse">https://arduino.github.io/arduino-cli/dev/rpc/commands/#enumeratemonitorportsettingsresponse</a></p>
-<p><a href="https://github.com/arduino/arduino-cli/blob/master/commands/daemon/term_example/main.go">https://github.com/arduino/arduino-cli/blob/master/commands/daemon/term_example/main.go</a></p>
+<p><a href="https://github.com/arduino/arduino-cli/blob/752709af9bf1bf8f6c1e6f689b1e8b86cc4e884e/commands/daemon/term_example/main.go">https://github.com/arduino/arduino-cli/blob/752709af9bf1bf8f6c1e6f689b1e8b86cc4e884e/commands/daemon/term_example/main.go</a></p>
 <h2 id="0230">0.23.0<a class="headerlink" href="#0230" title="Permanent link">&para;</a></h2>
 <h3 id="arduino-ide-builtin-libraries-are-now-excluded-from-the-build-when-running-arduino-cli-standalone">Arduino IDE builtin libraries are now excluded from the build when running <code>arduino-cli</code> standalone<a class="headerlink" href="#arduino-ide-builtin-libraries-are-now-excluded-from-the-build-when-running-arduino-cli-standalone" title="Permanent link">&para;</a></h3>
 <p>Previously the "builtin libraries" in the Arduino IDE 1.8.x were always included in the build process. This wasn't the

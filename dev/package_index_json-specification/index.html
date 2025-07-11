@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://arduino.github.io/arduino-cli/dev/package_index_json-specification/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.3.6">
     
     
       
@@ -581,6 +581,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../commands/arduino-cli_config_get/" class="md-nav__link">
+        config get
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../commands/arduino-cli_config_remove/" class="md-nav__link">
         config remove
       </a>
@@ -737,6 +751,20 @@
     <li class="md-nav__item">
       <a href="../commands/arduino-cli_debug/" class="md-nav__link">
         debug
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/arduino-cli_debug_check/" class="md-nav__link">
+        debug check
       </a>
     </li>
   
@@ -1379,6 +1407,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        Backward compatibility policy
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1557,7 +1600,11 @@ active users).</p>
 <ul>
 <li><code>name</code>: the folder used for the installed cores. The
   <a href="../platform-specification/#hardware-folders-structure">vendor folder</a> name of the installed package is determined by
-  this field</li>
+  this field<ul>
+<li>The value must not contain any characters other than the letters <code>A</code>-<code>Z</code> and <code>a</code>-<code>z</code>, numbers (<code>0</code>-<code>9</code>), underscores
+  (<code>_</code>), dashes (<code>-</code>), and dots (<code>.</code>).</li>
+</ul>
+</li>
 <li><code>maintainer</code>: the extended name of the vendor that is displayed on the Arduino IDE Boards Manager GUI</li>
 <li><code>websiteURL</code>: the URL to the vendor's website, appears on the Arduino IDE Boards Manager as a "More info" link</li>
 <li><code>email</code>: the email of the vendor/maintainer</li>
@@ -1658,8 +1705,8 @@ following table or fail if a needed flavour is missing.</p>
 <thead>
 <tr>
 <th>OS flavour</th>
-<th><code>host</code> regexp value</th>
-<th><code>host</code> suggested value</th>
+<th><code>host</code> regexp</th>
+<th>suggested <code>host</code> value</th>
 </tr>
 </thead>
 <tbody>
@@ -1684,6 +1731,11 @@ following table or fail if a needed flavour is missing.</p>
 <td><code>aarch64-linux-gnu</code></td>
 </tr>
 <tr>
+<td>Linux RISC-V 64</td>
+<td><code>riscv64-linux-gnu</code></td>
+<td><code>riscv64-linux-gnu</code></td>
+</tr>
+<tr>
 <td>Windows 32</td>
 <td><code>i[3456]86-.*(mingw32\|cygwin)</code></td>
 <td><code>i686-mingw32</code> or <code>i686-cygwin</code></td>
@@ -1691,7 +1743,7 @@ following table or fail if a needed flavour is missing.</p>
 <tr>
 <td>Windows 64</td>
 <td><code>(amd64\|x86_64)-.*(mingw32\|cygwin)</code></td>
-<td><code>x86_64-migw32</code> or <code>x86_64-cygwin</code></td>
+<td><code>x86_64-mingw32</code> or <code>x86_64-cygwin</code></td>
 </tr>
 <tr>
 <td>MacOSX 32</td>
@@ -1806,7 +1858,11 @@ used, you should use the notation <code>{runtime.tools.TOOLNAME-VERSION.path}</c
 <ul>
 <li><code>name</code>: the extended name of the platform that is displayed on the Boards Manager GUI</li>
 <li><code>architecture</code>: is the architecture of the platform (avr, sam, etc...). It must match the architecture of the core as
-  explained in the <a href="../platform-specification/#hardware-folders-structure">Arduino platform specification</a></li>
+  explained in the <a href="../platform-specification/#hardware-folders-structure">Arduino platform specification</a><ul>
+<li>The value must not contain any characters other than the letters <code>A</code>-<code>Z</code> and <code>a</code>-<code>z</code>, numbers (<code>0</code>-<code>9</code>), underscores
+  (<code>_</code>), dashes (<code>-</code>), and dots (<code>.</code>).</li>
+</ul>
+</li>
 <li><code>version</code>: the version of the platform.</li>
 <li><code>deprecated</code>: (optional) setting to <code>true</code> causes the platform to be moved to the bottom of all Boards Manager and
   <a href="https://arduino.github.io/arduino-cli/latest/commands/arduino-cli_core/"><code>arduino-cli core</code></a> listings and marked
@@ -1857,9 +1913,7 @@ that can be referenced from <code>platform.txt</code> using one of the following
 <code>arduino:avr-gcc</code> and another 3rd party packager may provide their own <code>3rdparty:avr-gcc</code>). The rules to disambiguate
 are as follows:</p>
 <ul>
-<li>
-<p>The property <code>{runtime.tools.TOOLNAME.path}</code> points, in order of priority, to:</p>
-<ol>
+<li>The property <code>{runtime.tools.TOOLNAME.path}</code> points, in order of priority, to:<ol>
 <li>the tool, version and packager specified via <code>toolsDependencies</code> in the <code>package_index.json</code></li>
 <li>the highest version of the tool provided by the packager of the current platform</li>
 <li>the highest version of the tool provided by the packager of the referenced platform used for compile (see

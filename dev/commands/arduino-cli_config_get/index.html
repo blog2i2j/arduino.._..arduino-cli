@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://arduino.github.io/arduino-cli/dev/commands/arduino-cli_config_add/">
+        <link rel="canonical" href="https://arduino.github.io/arduino-cli/dev/commands/arduino-cli_config_get/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.3.6">
     
     
       
-        <title>config add - Arduino CLI</title>
+        <title>config get - Arduino CLI</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arduino-cli-config-add" class="md-skip">
+        <a href="#arduino-cli-config-get" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              config add
+              config get
             
           </span>
         </div>
@@ -553,6 +553,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../arduino-cli_config_add/" class="md-nav__link">
+        config add
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arduino-cli_config_delete/" class="md-nav__link">
+        config delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -563,12 +591,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          config add
+          config get
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        config add
+        config get
       </a>
       
         
@@ -586,11 +614,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arduino-cli-config-add" class="md-nav__link">
-    arduino-cli config add
+  <a href="#arduino-cli-config-get" class="md-nav__link">
+    arduino-cli config get
   </a>
   
-    <nav class="md-nav" aria-label="arduino-cli config add">
+    <nav class="md-nav" aria-label="arduino-cli config get">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -637,34 +665,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../arduino-cli_config_delete/" class="md-nav__link">
-        config delete
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../arduino-cli_config_get/" class="md-nav__link">
-        config get
-      </a>
     </li>
   
 
@@ -1411,11 +1411,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arduino-cli-config-add" class="md-nav__link">
-    arduino-cli config add
+  <a href="#arduino-cli-config-get" class="md-nav__link">
+    arduino-cli config get
   </a>
   
-    <nav class="md-nav" aria-label="arduino-cli config add">
+    <nav class="md-nav" aria-label="arduino-cli config get">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1470,25 +1470,26 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/arduino/arduino-cli/blob/master/docs/commands/arduino-cli_config_add.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/arduino/arduino-cli/blob/master/docs/commands/arduino-cli_config_get.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>config add</h1>
+                  <h1>config get</h1>
                 
-                <h2 id="arduino-cli-config-add">arduino-cli config add<a class="headerlink" href="#arduino-cli-config-add" title="Permanent link">&para;</a></h2>
-<p>Adds one or more values to a setting.</p>
+                <h2 id="arduino-cli-config-get">arduino-cli config get<a class="headerlink" href="#arduino-cli-config-get" title="Permanent link">&para;</a></h2>
+<p>Gets a settings key value.</p>
 <h3 id="synopsis">Synopsis<a class="headerlink" href="#synopsis" title="Permanent link">&para;</a></h3>
-<p>Adds one or more values to a setting.</p>
-<div class="highlight"><pre><span></span><code>arduino-cli config add [flags]
+<p>Gets a settings key value.</p>
+<div class="highlight"><pre><span></span><code>arduino-cli config get [flags]
 </code></pre></div>
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  arduino-cli config add board_manager.additional_urls https://example.com/package_example_index.json
-  arduino-cli config add board_manager.additional_urls https://example.com/package_example_index.json https://another-url.com/package_another_index.json
+<div class="highlight"><pre><span></span><code>  arduino-cli config get logging
+  arduino-cli config get daemon.port
+  arduino-cli config get board_manager.additional_urls
 </code></pre></div>
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  -h, --help   help for add
+<div class="highlight"><pre><span></span><code>  -h, --help   help for get
 </code></pre></div>
 <h3 id="options-inherited-from-parent-commands">Options inherited from parent commands<a class="headerlink" href="#options-inherited-from-parent-commands" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>      --additional-urls strings   Comma-separated list of additional URLs for the Boards Manager.
@@ -1524,7 +1525,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../arduino-cli_config_init/" class="md-footer__link md-footer__link--prev" aria-label="Previous: config init" rel="prev">
+        <a href="../arduino-cli_config_delete/" class="md-footer__link md-footer__link--prev" aria-label="Previous: config delete" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1533,20 +1534,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              config init
+              config delete
             </div>
           </div>
         </a>
       
       
         
-        <a href="../arduino-cli_config_delete/" class="md-footer__link md-footer__link--next" aria-label="Next: config delete" rel="next">
+        <a href="../arduino-cli_config_remove/" class="md-footer__link md-footer__link--next" aria-label="Next: config remove" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              config delete
+              config remove
             </div>
           </div>
           <div class="md-footer__button md-icon">
